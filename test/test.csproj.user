@@ -1,9 +1,11 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <LastOpenVersion>7.10.3077</LastOpenVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ReferencePath>C:\src\jabber-net\lib\</ReferencePath>
+    <ReferencePath>
+    </ReferencePath>
     <CopyProjectDestinationFolder>
     </CopyProjectDestinationFolder>
     <CopyProjectUncPath>
@@ -11,8 +13,35 @@
     <CopyProjectOption>0</CopyProjectOption>
     <ProjectView>ProjectFiles</ProjectView>
     <ProjectTrust>0</ProjectTrust>
+    <PublishUrlHistory />
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <EnableASPDebugging>false</EnableASPDebugging>
+    <EnableASPXDebugging>false</EnableASPXDebugging>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <EnableSQLServerDebugging>false</EnableSQLServerDebugging>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <RemoteDebugMachine>
+    </RemoteDebugMachine>
+    <StartAction>Program</StartAction>
+    <StartArguments>test.dll</StartArguments>
+    <StartPage>
+    </StartPage>
+    <StartProgram>C:\Program Files\NUnit-Net-2.0 2.2.7\bin\nunit-gui.exe</StartProgram>
+    <StartURL>
+    </StartURL>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+    <StartWithIE>false</StartWithIE>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <EnableASPDebugging>false</EnableASPDebugging>
     <EnableASPXDebugging>false</EnableASPXDebugging>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
@@ -25,32 +54,11 @@
     </StartArguments>
     <StartPage>
     </StartPage>
-    <StartProgram>C:\src\jabber-net\xdataTest\bin\Debug\xdataTest.exe</StartProgram>
+    <StartProgram>C:\src\jabber-net\test\nunit\nunit-gui.exe</StartProgram>
     <StartURL>
     </StartURL>
     <StartWorkingDirectory>
     </StartWorkingDirectory>
-    <StartWithIE>true</StartWithIE>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <EnableASPDebugging>false</EnableASPDebugging>
-    <EnableASPXDebugging>false</EnableASPXDebugging>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <EnableSQLServerDebugging>false</EnableSQLServerDebugging>
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <RemoteDebugMachine>
-    </RemoteDebugMachine>
-    <StartAction>Project</StartAction>
-    <StartArguments>
-    </StartArguments>
-    <StartPage>
-    </StartPage>
-    <StartProgram>
-    </StartProgram>
-    <StartURL>
-    </StartURL>
-    <StartWorkingDirectory>
-    </StartWorkingDirectory>
-    <StartWithIE>true</StartWithIE>
+    <StartWithIE>false</StartWithIE>
   </PropertyGroup>
 </Project>

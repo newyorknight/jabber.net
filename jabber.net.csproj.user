@@ -1,4 +1,5 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <LastOpenVersion>7.10.3077</LastOpenVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,17 +21,15 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <RemoteDebugMachine>
     </RemoteDebugMachine>
-    <StartAction>Project</StartAction>
+    <StartAction>Program</StartAction>
     <StartArguments>
     </StartArguments>
     <StartPage>
     </StartPage>
-    <StartProgram>
-    </StartProgram>
+    <StartProgram>D:\Development\Jabber\Devel\Applications\protocert\src\ProtoCert-GUI\bin\Debug\ProtoCert-GUI.exe</StartProgram>
     <StartURL>
     </StartURL>
-    <StartWorkingDirectory>
-    </StartWorkingDirectory>
+    <StartWorkingDirectory>D:\Development\Jabber\Devel\Applications\protocert\src\ProtoCert-GUI\bin\Debug\</StartWorkingDirectory>
     <StartWithIE>false</StartWithIE>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -52,6 +51,6 @@
     </StartURL>
     <StartWorkingDirectory>
     </StartWorkingDirectory>
-    <StartWithIE>true</StartWithIE>
+    <StartWithIE>false</StartWithIE>
   </PropertyGroup>
 </Project>
