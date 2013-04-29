@@ -16,7 +16,7 @@ namespace test.bedrock.net
     {
         private static readonly Encoding ENC = Encoding.UTF8;
 
-        private class ServerListener: ISocketEventListener
+        private class ServerListener : ISocketEventListener
         {
             #region ISocketEventListener Members
 
@@ -43,7 +43,7 @@ namespace test.bedrock.net
 
             public void OnClose(BaseSocket sock)
             {
-                
+
             }
 
             public void OnError(BaseSocket sock, Exception ex)
@@ -57,7 +57,7 @@ namespace test.bedrock.net
                 Console.WriteLine("SR: " + str);
                 if (str.Contains("11111"))
                 {
-                sock.Write(ENC.GetBytes(@"HTTP/1.1 200 OK
+                    sock.Write(ENC.GetBytes(@"HTTP/1.1 200 OK
 Content-Length: 10
 Content-Type: text/plain
 
@@ -103,7 +103,7 @@ Content-Type: text/plain
             #endregion
         }
 
-        private class ResponseListener: ISocketEventListener
+        private class ResponseListener : ISocketEventListener
         {
             public string Last = null;
             public AutoResetEvent Event = new AutoResetEvent(false);
@@ -193,3 +193,4 @@ Content-Type: text/plain
             Assert.AreEqual("12345678901234567890", resp.Last);
         }
     }
+}
