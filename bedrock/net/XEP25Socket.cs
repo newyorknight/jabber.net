@@ -15,7 +15,6 @@ namespace bedrock.net
     /// <summary>
     /// XEP25 Error conditions
     /// </summary>
-    [SVN(@"$Id$")]
     public class XEP25Exception : WebException
     {
         /// <summary>
@@ -31,7 +30,6 @@ namespace bedrock.net
     /// Make a XEP-25 (http://www.xmpp.org/extensions/xep-0025.html) polling "connection" look like a socket.
     /// TODO: get rid of the PipeStream, if possible.
     /// </summary>
-    [SVN(@"$Id$")]
     public class XEP25Socket : BaseSocket, IHttpSocket
     {
         private const string CONTENT_TYPE = "application/x-www-form-urlencoded";

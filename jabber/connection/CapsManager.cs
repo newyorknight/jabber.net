@@ -21,7 +21,6 @@ namespace jabber.connection
     /// Manages the entity capabilities information for the local connection as well as remote ones.
     /// See XEP-0115, version 1.5 for details.
     /// </summary>
-    [SVN("$Id$")]
     public class CapsManager: StreamComponent
     {
         /// <summary>

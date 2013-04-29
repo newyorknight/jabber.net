@@ -7,7 +7,6 @@ namespace jabber.connection
     /// <summary>
     /// Represents the base class for all states.
     /// </summary>
-    [SVN(@"$Id$")]
     public abstract class BaseState
     {
     }
@@ -16,7 +15,6 @@ namespace jabber.connection
     /// Specifies the state is up and running.  If subclasses change the
     /// state transition approach, they should end at the RunningState state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class RunningState : BaseState
     {
         /// <summary>
@@ -28,7 +26,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is not connected.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ClosedState : BaseState
     {
         /// <summary>
@@ -41,7 +38,6 @@ namespace jabber.connection
     /// Specifies the state is in the process of connecting such as
     /// DNS lookup, socket setup, and so on.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ConnectingState : BaseState
     {
         /// <summary>
@@ -53,7 +49,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in the "connected socket" state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ConnectedState : BaseState
     {
         /// <summary>
@@ -65,7 +60,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in the "stream:stream has been received" state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class StreamState : BaseState
     {
         /// <summary>
@@ -78,7 +72,6 @@ namespace jabber.connection
     /// Specifies the state is in a closing state.
     /// A close was requested, but hasn't yet finalized.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ClosingState : BaseState
     {
         /// <summary>
@@ -90,7 +83,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in a paused state waiting for reconnect timeout.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ReconnectingState : BaseState
     {
         /// <summary>
@@ -102,7 +94,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in the "Accepting incoming socket connections" state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class AcceptingState : BaseState
     {
         /// <summary>
@@ -113,7 +104,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in Old-style auth, iq:auth or handshake.
     /// </summary>
-    [SVN(@"$Id$")]
     public class NonSASLAuthState : BaseState
     {
         /// <summary>
@@ -124,7 +114,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in waiting for the server to send the features element.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ServerFeaturesState : BaseState
     {
         /// <summary>
@@ -135,7 +124,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in Start-TLS.
     /// </summary>
-    [SVN(@"$Id$")]
     public class StartTLSState : BaseState
     {
         /// <summary>
@@ -146,7 +134,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in the compression state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class CompressionState : BaseState
     {
         /// <summary>
@@ -157,7 +144,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in SASL Authentication.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SASLState : BaseState
     {
         /// <summary>
@@ -169,7 +155,6 @@ namespace jabber.connection
     /// Specifies the state is in the SASL Authentication has finished state.
     /// Restarting the stream for the last time.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SASLAuthedState : BaseState
     {
         /// <summary>
@@ -180,7 +165,6 @@ namespace jabber.connection
     /// <summary>
     /// SASL Authentication failed.  On some servers you can re-try, or register.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SASLFailedState : BaseState
     {
         /// <summary>
@@ -191,7 +175,6 @@ namespace jabber.connection
     /// <summary>
     /// Specifies the state is in the "Binding session" state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class BindState : BaseState
     {
         /// <summary>

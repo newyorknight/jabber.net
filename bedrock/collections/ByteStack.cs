@@ -7,7 +7,6 @@ namespace bedrock.collections
     /// A type-safe stack for bytes, implemented as a growable
     /// buffer.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ByteStack
     {
         private const double GROWTH_FACTOR = 1.5d;

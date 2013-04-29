@@ -8,7 +8,6 @@ namespace bedrock.collections
     /// <summary>
     /// Set operations.
     /// </summary>
-    [SVN(@"$Id$")]
     public interface ISet : ICollection
     {
         /// <summary>

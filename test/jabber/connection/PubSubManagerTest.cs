@@ -15,7 +15,6 @@ using Rhino.Mocks;
 namespace test.jabber.connection
 {
     [TestFixture]
-    [SVN(@"$Id$")]
     public class PubSubManagerTest
     {
         private const string PUB_SUB_XMLNS = "http://jabber.org/protocol/pubsub";

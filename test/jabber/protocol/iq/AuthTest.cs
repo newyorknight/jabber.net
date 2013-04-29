@@ -13,7 +13,6 @@ namespace test.jabber.protocol.iq
     /// <summary>
     /// Summary description for AuthTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class AuthTest
     {

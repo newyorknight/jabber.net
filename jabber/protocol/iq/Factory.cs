@@ -9,7 +9,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// ElementFactory for all currently supported IQ namespaces.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Factory : IPacketTypes
     {
         private static QnameType[] s_qnt = new QnameType[]

@@ -13,7 +13,6 @@ namespace test.jabber.protocol.iq
     /// <summary>
     /// Summary description for RosterTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class RegisterTest
     {

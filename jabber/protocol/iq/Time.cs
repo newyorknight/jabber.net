@@ -20,7 +20,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// IQ packet with an time query element inside.
     /// </summary>
-    [SVN(@"$Id$")]
     public class TimeIQ : jabber.protocol.client.TypedIQ<Time>
     {
         /// <summary>
@@ -35,7 +34,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// A time query element.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Time : Element
     {
         /// <summary>

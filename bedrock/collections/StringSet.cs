@@ -10,7 +10,6 @@ namespace bedrock.collections
     /// A set of strings, backed into a BitArray.  Any given string that is inserted
     /// into any instance of a StringSet increases the size of all StringSets over time.
     /// </summary>
-    [SVN(@"$Id$")]
     public class StringSet : IEnumerable, IEnumerable<string>, ICloneable
 	{
         private BitArray m_bits = null;

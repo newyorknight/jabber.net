@@ -11,7 +11,6 @@ namespace test.jabber.protocol.accept
     /// <summary>
     /// Summary description for IQTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class RouteTest
     {

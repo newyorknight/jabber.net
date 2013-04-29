@@ -10,7 +10,6 @@ namespace test.bedrock.collections
     /// <summary>
     /// Summary description for SkipListTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class SkipListTest
     {

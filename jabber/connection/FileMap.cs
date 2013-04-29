@@ -13,7 +13,6 @@ namespace jabber.connection
     /// A dictionary backed into a file.  Any modification to the dictionary re-writes the file, so 
     /// writes are somewhat costly.  Reads are cached lazily.
     /// </summary>
-    [SVN(@"$Id$")]
     public class FileMap<T>
         where T : Element
 	{

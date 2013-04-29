@@ -12,7 +12,6 @@ using System.Xml;
 namespace test.jabber.connection.sasl
 {
     [TestFixture]
-    [SVN(@"$Id$")]
     public class MD5ProcessorTest
     {
         [Test]

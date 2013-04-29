@@ -9,7 +9,6 @@ namespace bedrock.net
     /// <summary>
     /// Proxy object for sockets that want to do SHTTP proxying.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ShttpProxy : ProxySocket
     {
         private enum States { None, Connecting, WaitingForAuth, Running, Closed, Error }

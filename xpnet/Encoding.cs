@@ -5,7 +5,6 @@ namespace xpnet
     /// <summary>
     /// Tokens that might have been found
     /// </summary>
-    [SVN(@"$Id$")]
     public enum TOK
     {
         /**
@@ -237,7 +236,6 @@ namespace xpnet
     /// <summary>
     /// Base tokenizer class
     /// </summary>
-    [SVN(@"$Id$")]
     public abstract class Encoding
     {
         // Bytes with type < 0 may not be data in content.

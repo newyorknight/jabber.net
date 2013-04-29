@@ -16,7 +16,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// IQ packet with an Last query element inside.
     /// </summary>
-    [SVN(@"$Id$")]
     public class LastIQ : jabber.protocol.client.TypedIQ<Last>
     {
         /// <summary>
@@ -31,7 +30,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// A Last query element, which requests the last activity from an entity.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Last : Element
     {
         /// <summary>

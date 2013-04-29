@@ -22,7 +22,6 @@ namespace jabber.client
     /// Manager bookmarks on the server, with the old-style iq:private.
     /// TODO: add support for new-style PEP.
     /// </summary>
-    [SVN(@"$Id$")]    
     public class BookmarkManager : jabber.connection.StreamComponent
 	{
         private bool m_autoPrivate = true;

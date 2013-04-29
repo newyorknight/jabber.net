@@ -10,7 +10,6 @@ namespace jabber.protocol.x
     /// Types of events
     /// </summary>
     [Flags]
-    [SVN(@"$Id$")]
     public enum EventType
     {
         /// <summary>
@@ -47,7 +46,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// A event x element, described by XEP-0022.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Event : Element
     {
         /// <summary>

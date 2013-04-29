@@ -14,7 +14,6 @@ namespace test.jabber.protocol.stream
     /// <summary>
     /// Summary description for StreamTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class StreamTest
     {

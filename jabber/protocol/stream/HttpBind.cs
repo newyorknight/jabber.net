@@ -91,7 +91,6 @@ namespace jabber.protocol.stream
     /// An HTTP Binding body element, which encapsulates stanzas.
     /// See XEP-124 and XEP-206 for details.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Body : Element
     {
         /// <summary>

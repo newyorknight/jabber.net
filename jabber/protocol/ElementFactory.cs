@@ -12,7 +12,6 @@ namespace jabber.protocol
     /// <summary>
     /// Qname to type mapping.
     /// </summary>
-    [SVN(@"$Id$")]
     public class QnameType
     {
         /// <summary>
@@ -78,7 +77,6 @@ namespace jabber.protocol
     /// <summary>
     /// Interface for packet factories to implement.
     /// </summary>
-    [SVN(@"$Id$")]
     public interface IPacketTypes
     {
         /// <summary>
@@ -91,7 +89,6 @@ namespace jabber.protocol
     /// A ElementFactory is a class that knows how to create packet instances of
     /// a wide variety of different types.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ElementFactory
     {
         private Hashtable m_types = new Hashtable();

@@ -9,7 +9,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// IQ packet with a roster query element inside.
     /// </summary>
-    [SVN(@"$Id$")]
     public class RosterIQ : jabber.protocol.client.TypedIQ<Roster>
     {
         /// <summary>
@@ -24,7 +23,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// A roster query element.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Roster : Element
     {
         /// <summary>
@@ -68,7 +66,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// The current status of the subscription related to this item.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum Subscription
     {
         /// <summary>
@@ -100,7 +97,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// An optional attribute specifying the current status of a request to this contact.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum Ask
     {
         /// <summary>
@@ -120,7 +116,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// Roster items.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Item : Element
     {
         /// <summary>
@@ -253,7 +248,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// Roster item groups.  &lt;group&gt;GroupName&lt;/group&gt;
     /// </summary>
-    [SVN(@"$Id$")]
     public class Group : Element
     {
         /// <summary>

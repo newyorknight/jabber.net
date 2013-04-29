@@ -14,7 +14,6 @@ namespace muzzle
     /// <summary>
     /// A UserControl that references an XmppStream.
     /// </summary>
-    [SVN(@"$Id$")]
     public class StreamControl : System.Windows.Forms.UserControl
     {
         /// <summary>

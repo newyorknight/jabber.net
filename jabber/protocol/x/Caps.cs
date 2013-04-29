@@ -9,7 +9,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// Entity Capabilities.  See http://www.xmpp.org/extensions/xep-0115.html.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Caps : Element
     {
         private static readonly char[] SPLIT = " ".ToCharArray();

@@ -5,7 +5,6 @@ namespace xpnet
     /// <summary>
     /// A token that was parsed.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Token
     {
         private int tokenEnd = -1;

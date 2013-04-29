@@ -9,7 +9,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Message type attribute
     /// </summary>
-    [SVN(@"$Id$")]
     public enum MessageType
     {
         /// <summary>
@@ -38,7 +37,6 @@ namespace jabber.protocol.client
     /// TODO: Some XHTML is supported by setting the .Html property,
     /// but extra xmlns="" get put everywhere at the moment.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Message : Packet
     {
         /// <summary>

@@ -8,7 +8,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Session start after binding
     /// </summary>
-    [SVN(@"$Id$")]
     public class Session : Element
     {
         /// <summary>

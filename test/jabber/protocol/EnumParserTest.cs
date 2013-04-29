@@ -11,7 +11,6 @@ namespace test.jabber.protocol
     /// <summary>
     /// Test the EnumParser
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class EnumParserTest
     {

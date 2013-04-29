@@ -19,7 +19,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages a service discovery (disco) identity. See <a href="http://www.xmpp.org/extensions/xep-0030.html">XEP-0030</a> for more information.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Ident : IComparable
     {
         private string m_name;
@@ -190,7 +189,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages a JID and Node combination.
     /// </summary>
-    [SVN(@"$Id$")]
     public class JIDNode
     {
         private JID m_jid = null;
@@ -302,7 +300,6 @@ namespace jabber.connection
     ///
     /// NOTE: If you have multiple connections in the same process, they all share the same Disco cache.
     /// </summary>
-    [SVN(@"$Id$")]
     public class DiscoNode : JIDNode, IEnumerable
     {
         /// <summary>
@@ -825,7 +822,6 @@ namespace jabber.connection
     // TODO: once etags are finished, make all of this information cached on disk.
     // TODO: cache XEP-115 client caps data to disk
     // TODO: add negative caching
-    [SVN(@"$Id$")]
     public class DiscoManager : StreamComponent, IEnumerable
     {
         /// <summary>

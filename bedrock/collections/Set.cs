@@ -8,7 +8,6 @@ namespace bedrock.collections
     /// <summary>
     /// The different ways a set can be implemented.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum SetImplementation
     {
         /// <summary>
@@ -28,7 +27,6 @@ namespace bedrock.collections
     /// <summary>
     /// Set backed into a Tree.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Set : ISet
     {
         private static readonly object s_nothing = new object();

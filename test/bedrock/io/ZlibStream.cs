@@ -10,7 +10,6 @@ namespace test.bedrock.io
     /// <summary>
     /// Test the ZlibStream class.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class ZlibStreamTest
     {

@@ -8,7 +8,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// SASL mechanisms registered with IANA as of 5/16/2004.
     /// </summary>
-    [SVN(@"$Id$")]
     [Flags]
     public enum MechanismType
     {
@@ -109,7 +108,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// SASL mechanisms in stream features.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Mechanisms : Element
     {
         /// <summary>
@@ -169,7 +167,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Stores SASL mechanisms in stream features.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Mechanism : Element
     {
         /// <summary>
@@ -369,7 +366,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// First phase of SASL auth.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Auth : Step
     {
         /// <summary>
@@ -412,7 +408,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Subsequent phases of SASL auth sent by server.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Challenge : Step
     {
         /// <summary>
@@ -439,7 +434,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// First phase of SASL auth.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Response : Step
     {
         /// <summary>
@@ -466,7 +460,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// SASL auth failed.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SASLFailure : Step
     {
         /// <summary>
@@ -493,7 +486,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Abort SASL auth.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Abort : Step
     {
         /// <summary>
@@ -520,7 +512,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// SASL auth successfult.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Success : Step
     {
         /// <summary>

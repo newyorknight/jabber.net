@@ -9,7 +9,6 @@ namespace test.bedrock.collections
     /// <summary>
     /// Summary description for SetTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class SetTest
     {

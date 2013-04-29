@@ -27,7 +27,6 @@ namespace jabber.client
     /// <summary>
     /// Specifies the presence proxy database.
     /// </summary>
-    [SVN(@"$Id$")]
     public class PresenceManager : jabber.connection.StreamComponent, IEnumerable
     {
         /// <summary>

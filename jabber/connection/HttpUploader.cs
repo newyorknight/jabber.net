@@ -13,7 +13,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages HTTP Requests via XMPP (XEP-70).
     /// </summary>
-    [SVN(@"$Id$")]
     public class HttpUploader
     {
         /// <summary>

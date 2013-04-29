@@ -37,7 +37,6 @@ namespace muzzle
     /// A StripChart is a scrolling window showing a set number of data points.
     /// As new points are added, old points get shifted along.
     /// </summary>
-    [SVN(@"$Id$")]
     public class StripChart : System.Windows.Forms.UserControl
     {
         private bool       m_first     = true;

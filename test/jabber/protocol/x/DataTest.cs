@@ -13,7 +13,6 @@ namespace test.jabber.protocol.x
     /// <summary>
     /// Summary description for DataTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class DataTest
     {

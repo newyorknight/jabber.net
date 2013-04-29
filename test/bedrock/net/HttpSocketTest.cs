@@ -11,7 +11,6 @@ using System.Threading;
 
 namespace test.bedrock.net
 {
-    [SVN(@"$Id$")]
     [TestFixture]
     public class HttpSocketTest
     {

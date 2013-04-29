@@ -11,7 +11,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// A GeoLoc IQ.
     /// </summary>
-    [SVN(@"$Id$")]
     public class GeoLocIQ : jabber.protocol.client.TypedIQ<GeoLoc>
     {
         /// <summary>
@@ -26,7 +25,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// Geographic location.  See http://www.xmpp.org/extensions/xep-0080.html.
     /// </summary>
-    [SVN(@"$Id$")]
     public class GeoLoc : Element
     {
         /// <summary>

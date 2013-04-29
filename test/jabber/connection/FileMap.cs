@@ -11,7 +11,6 @@ using jabber.protocol.iq;
 
 namespace test.jabber.connection
 {
-    [SVN(@"$Id$")]
     [TestFixture]
     public class FileMapTest
     {

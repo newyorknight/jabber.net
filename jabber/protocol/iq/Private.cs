@@ -10,7 +10,6 @@ namespace jabber.protocol.iq
     /// Private storage IQ.
     /// See XEP-0049 (http://www.xmpp.org/extensions/xep-0049.html)
     /// </summary>
-    [SVN(@"$Id$")]
     public class PrivateIQ : jabber.protocol.client.TypedIQ<Private>
     {
         /// <summary>
@@ -27,7 +26,6 @@ namespace jabber.protocol.iq
     /// Private storage query.
     /// See XEP-0049 (http://www.xmpp.org/extensions/xep-0049.html)
     /// </summary>
-    [SVN(@"$Id$")]
     public class Private : Element
     {
         /// <summary>

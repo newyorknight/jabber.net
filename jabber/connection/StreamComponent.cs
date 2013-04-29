@@ -12,7 +12,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages the XmppStream as a component.
     /// </summary>
-    [SVN(@"$Id$")]
     public abstract class StreamComponent : System.ComponentModel.Component
     {
         /// <summary>

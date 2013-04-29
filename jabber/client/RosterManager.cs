@@ -62,7 +62,6 @@ namespace jabber.client
     /// <summary>
     /// Manages the roster of the client.
     /// </summary>
-    [SVN(@"$Id$")]
     public class RosterManager : jabber.connection.StreamComponent, IEnumerable
     {
         /// <summary>

@@ -10,7 +10,6 @@ namespace jabber.protocol.accept
     /// The handshake tag, including digest calculation.  Call SetAuth() to calculate
     /// the SHA1 hash.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Handshake : jabber.protocol.Element
     {
         /// <summary>

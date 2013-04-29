@@ -6,7 +6,6 @@ using NUnit.Framework;
 namespace test.jabber.protocol.iq
 {
     [TestFixture]
-    [SVN(@"$Id$")]
     public class PubSubTest
     {
         private const string NODE = "TestNode";

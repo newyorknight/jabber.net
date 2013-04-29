@@ -9,7 +9,6 @@ namespace jabber.protocol.accept
     /// <summary>
     /// The type field in a log tag.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum LogType
     {
         /// <summary>
@@ -37,7 +36,6 @@ namespace jabber.protocol.accept
     /// <summary>
     /// The log packet.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Log : jabber.protocol.Packet
     {
         /// <summary>

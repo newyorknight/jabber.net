@@ -23,13 +23,11 @@ namespace bedrock.net
     /// An asynchronous socket, which calls a listener class when
     /// interesting things happen.
     /// </summary>
-    [SVN(@"$Id$")]
     public class AsyncSocket : BaseSocket, IComparable
     {
         /// <summary>
         /// Socket states.
         /// </summary>
-        [SVN(@"$Id$")]
             private enum SocketState
         {
             /// <summary>

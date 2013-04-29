@@ -10,7 +10,6 @@ namespace test.bedrock.collections
     /// <summary>
     ///    Summary description for TemplateTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class ByteStackTest
     {

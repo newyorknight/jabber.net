@@ -11,7 +11,6 @@ namespace test.jabber.protocol.client
     /// <summary>
     /// Summary description for PresenceTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class PresenceTest
     {

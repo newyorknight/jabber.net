@@ -7,7 +7,6 @@ namespace test.bedrock.util
     /// <summary>
     ///    Summary description for GetOptBaseTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class GetOptTest
     {
@@ -201,7 +200,6 @@ namespace test.bedrock.util
         BAR
     }
 
-    [SVN(@"$Id$")]
     public class TestGetOpt : GetOpt
     {
         [CommandLine("nologo", Description="Command line argument for NUnit.")]

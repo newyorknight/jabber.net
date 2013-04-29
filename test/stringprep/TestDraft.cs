@@ -9,7 +9,6 @@ using bedrock.util;
 
 namespace test.stringprep
 {
-    [SVN(@"$Id$")]
     [TestFixture]
     public class TestDraft
     {

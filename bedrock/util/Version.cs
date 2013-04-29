@@ -14,7 +14,6 @@ namespace bedrock.util
     /// <see cref="StarTeamAttribute"/>
     /// <see cref="SourceSafeAttribute"/>
     /// <see cref="RCSAttribute"/>
-    //    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct,
                     AllowMultiple = false,
                     Inherited     = false)]
@@ -287,7 +286,6 @@ namespace bedrock.util
     ///
     /// SourceVersionAttribute sta = SourceVersionAttribute.GetVersion(typeof(foo));
     /// </example>
-    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct,
                     AllowMultiple=false, Inherited=false)]
     public class StarTeamAttribute : SourceVersionAttribute
@@ -346,7 +344,6 @@ namespace bedrock.util
     /// <summary>
     /// Version control attribute for RCS and CVS.
     /// </summary>
-    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct,
                     AllowMultiple=false, Inherited=false)]
     public class RCSAttribute : SourceVersionAttribute
@@ -409,7 +406,6 @@ namespace bedrock.util
     /// I don't use this any more, so someone tell me if it breaks with
     /// some new release.
     /// </summary>
-    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct,
                     AllowMultiple=false, Inherited=false)]
     public class SourceSafeAttribute : SourceVersionAttribute
@@ -459,7 +455,6 @@ namespace bedrock.util
     /// return a list of all of the versioned classes in the
     /// current working set.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SourceVersionCollection : NameObjectCollectionBase
     {
         /// <summary>
@@ -573,7 +568,6 @@ namespace bedrock.util
     /// <summary>
     /// Version control attribute for Subversion.
     /// </summary>
-    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Struct,
                     AllowMultiple=false, Inherited=false)]
     public class SVNAttribute : SourceVersionAttribute

@@ -11,7 +11,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// An auth IQ.
     /// </summary>
-    [SVN(@"$Id$")]
     public class AuthIQ : jabber.protocol.client.TypedIQ<Auth>
     {
         /// <summary>
@@ -27,7 +26,6 @@ namespace jabber.protocol.iq
     /// Client authentication, with digest support.  Call SetAuth() to compute
     /// the digest.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Auth : Element
     {
         /// <summary>

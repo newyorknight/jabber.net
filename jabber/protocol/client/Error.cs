@@ -10,7 +10,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Error codes for IQ and message
     /// </summary>
-    [SVN(@"$Id$")]
     public enum ErrorCode
     {
         /// <summary>
@@ -123,7 +122,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Error IQ
     /// </summary>
-    [SVN(@"$Id$")]
     public class IQError : IQ
     {
         /// <summary>
@@ -142,7 +140,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Error in a message or IQ.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Error : Element
     {
         /// <summary>

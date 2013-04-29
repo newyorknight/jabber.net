@@ -12,7 +12,6 @@ namespace test.jabber.protocol.client
     /// <summary>
     /// Summary description for MessageTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class MessageTest
     {

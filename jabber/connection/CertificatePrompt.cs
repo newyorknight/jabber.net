@@ -19,7 +19,6 @@ namespace jabber.connection
     /// Intentionally-ugly form to deal with bad certificates.  Because you don't like it, you should catch XmppStream.OnInvalidCertificate,
     /// and do something better.
     /// </summary>
-    [SVN(@"$Id$")]
     public class CertificatePrompt
 #if UI_OK
         : Form

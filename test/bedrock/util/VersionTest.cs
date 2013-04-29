@@ -7,7 +7,6 @@ namespace test.bedrock.util
     /// <summary>
     ///    Summary description for AssemblyXMLTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class VersionTest
     {

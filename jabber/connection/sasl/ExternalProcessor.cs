@@ -11,7 +11,6 @@ namespace jabber.connection.sasl
     /// <summary>
     /// SASL Mechanism EXTERNAL as specified in XEP-0178.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ExternalProcessor : SASLProcessor
     {
         /// <summary>

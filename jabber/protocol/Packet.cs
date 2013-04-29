@@ -12,7 +12,6 @@ namespace jabber.protocol
     /// <summary>
     /// Packets that have to/from information.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Packet : Element
     {
         /// <summary>

@@ -14,7 +14,6 @@ namespace jabber.protocol
     /// Summary description for AsynchElementStream.
     /// TODO: combine with ElementStream, since there's only one impl now.
     /// </summary>
-    [SVN(@"$Id$")]
     public class AsynchElementStream : ElementStream
     {
         private static System.Text.Encoding utf = System.Text.Encoding.UTF8;
@@ -314,7 +313,6 @@ namespace jabber.protocol
         /// <summary>
         /// There was an error parsing XML.  What was the context?
         /// </summary>
-        [SVN(@"$Id$")]
         public class XMLParseException : Exception
         {
             private string m_context = null;

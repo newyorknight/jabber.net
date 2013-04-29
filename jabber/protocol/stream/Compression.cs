@@ -8,7 +8,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// XEP-138 compression.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Compression : Element
     {
         /// <summary>
@@ -75,7 +74,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// XEP-138 compression failure.
     /// </summary>
-    [SVN(@"$Id$")]
     public class CompressionFailure : Element
     {
         /// <summary>
@@ -118,7 +116,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// XEP-138 compression start.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Compress : Element
     {
         /// <summary>
@@ -155,7 +152,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// XEP-138 compression success.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Compressed : Element
     {
         /// <summary>

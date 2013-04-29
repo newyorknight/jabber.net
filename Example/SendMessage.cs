@@ -12,7 +12,6 @@ namespace Example
     /// <summary>
     /// Summary description for SendMessage.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SendMessage : System.Windows.Forms.Form
     {
         private jabber.client.JabberClient m_jc;

@@ -9,7 +9,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Stream error packet.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Error : Element
     {
         /// <summary>

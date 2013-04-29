@@ -12,7 +12,6 @@ namespace jabber.connection
     /// <summary>
     /// Contains the types of proxies Jabber-Net supports.  This is only for socket connections.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum ProxyType
     {
         /// <summary>
@@ -37,7 +36,6 @@ namespace jabber.connection
     /// <summary>
     /// "Standard" XMPP socket for outbound connections.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SocketStanzaStream : StanzaStream, ISocketEventListener
     {
         private AsynchElementStream m_elements = null;

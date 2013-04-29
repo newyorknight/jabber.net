@@ -25,7 +25,6 @@ namespace jabber.protocol
     ///
     /// TODO: Combine with AsyncElementStream, since there's only one impl.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ElementStream
     {
         /// <summary>

@@ -10,7 +10,6 @@ namespace test.jabber
     /// <summary>
     /// Summary description for JIDTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class JIDTest
     {

@@ -16,7 +16,6 @@ using Rhino.Mocks.Interfaces;
 namespace test.jabber.connection
 {
     [TestFixture]
-    [SVN(@"$Id$")]
     public class ConferenceManagerTest
     {
         private MockRepository mocks;

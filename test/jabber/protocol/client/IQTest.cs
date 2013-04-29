@@ -13,7 +13,6 @@ namespace test.jabber.protocol.client
     /// <summary>
     /// Summary description for IQTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class IQTest
     {

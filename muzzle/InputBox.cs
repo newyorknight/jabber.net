@@ -11,7 +11,6 @@ namespace muzzle
     /// <summary>
     /// A generic input getter dialog.
     /// </summary>
-    [SVN(@"$Id$")]
     public class InputBox : Form
     {
         private Label label1;

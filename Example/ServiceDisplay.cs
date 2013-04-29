@@ -10,7 +10,6 @@ using jabber.connection;
 
 namespace Example
 {
-    [SVN(@"$Id$")]
     public class ServiceDisplay : UserControl
     {
         /// <summary>

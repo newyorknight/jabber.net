@@ -20,7 +20,6 @@ namespace muzzle
     /// <summary>
     /// Summary description for XData.
     /// </summary>
-    [SVN(@"$Id$")]
     public class XDataForm : System.Windows.Forms.Form
     {
         private static Regex WS = new Regex("\\s+", RegexOptions.Compiled);

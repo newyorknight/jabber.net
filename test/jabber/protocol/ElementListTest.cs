@@ -13,7 +13,6 @@ namespace test.jabber.protocol
     /// <summary>
     /// Summary description for ElementListTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class ElementListTest
     {

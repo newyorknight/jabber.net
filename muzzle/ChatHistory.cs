@@ -13,7 +13,6 @@ namespace muzzle
     /// <summary>
     /// Keep track of the history of a conversation or room.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ChatHistory : BottomScrollRichText
     {
         // TODO: create a manager class that knows these prefs, and sets them easily every time.

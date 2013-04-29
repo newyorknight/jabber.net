@@ -15,7 +15,6 @@ namespace muzzle
     /// <summary>
     /// Base class for forms that configure XmppStream subclasses.
     /// </summary>
-    [SVN(@"$Id$")]
     public class OptionForm : Form
     {
         private Button btnCancel;

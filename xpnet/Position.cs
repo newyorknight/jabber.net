@@ -11,7 +11,6 @@ namespace xpnet
     ///<summary>
     /// Position of an entry in a table.
     ///</summary>
-    [SVN(@"$Id$")]
     public class Position : System.ICloneable
     {
         private int lineNumber;

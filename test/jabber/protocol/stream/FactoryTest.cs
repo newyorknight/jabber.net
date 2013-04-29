@@ -11,7 +11,6 @@ namespace test.jabber.protocol.stream
     /// <summary>
     /// Summary description for StreamFactoryTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class StreamFactoryTest
     {

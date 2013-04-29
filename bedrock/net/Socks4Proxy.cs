@@ -10,7 +10,6 @@ namespace bedrock.net
     /// <summary>
     /// Proxy object for sockets that want to do SOCKS4 proxying.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Socks4Proxy : ProxySocket
     {
         private enum States { None, Connecting, RequestingProxy, Running, Closed }

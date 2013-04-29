@@ -13,7 +13,6 @@ namespace jabber.connection.sasl
     ///<summary>
     /// Uses Kerberos authentication ot log into XMPP server.
     ///</summary>
-    [SVN(@"$Id$")]
     public class KerbProcessor : SASLProcessor
     {
         /// <summary>

@@ -10,7 +10,6 @@ namespace bedrock.io
     /// <summary>
     /// Compression failed.
     /// </summary>
-    [SVN(@"$Id$")]
     public class CompressionFailedException : ApplicationException
     {
         /// <summary>
@@ -33,7 +32,6 @@ namespace bedrock.io
     /// No, System.IO.Compression.GZipStream won't work, because they didn't expose
     /// compression levels or flush types.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ZlibStream : Stream
     {
         /// <summary>

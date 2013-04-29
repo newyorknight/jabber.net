@@ -9,7 +9,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// IQ packet with a version query element inside.
     /// </summary>
-    [SVN(@"$Id$")]
     public class VersionIQ : jabber.protocol.client.TypedIQ<Version>
     {
         /// <summary>
@@ -24,7 +23,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// A time query element.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Version : Element
     {
         /// <summary>

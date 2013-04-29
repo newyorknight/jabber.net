@@ -8,7 +8,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Bind start after binding
     /// </summary>
-    [SVN(@"$Id$")]
     public class Bind : Element
     {
         /// <summary>

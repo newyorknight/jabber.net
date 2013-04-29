@@ -16,7 +16,6 @@ namespace bedrock.net
     /// you need to have a place to collect all of the sockets and call poll().  Here, it's just
     /// convenience functions.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SocketWatcher : IDisposable
     {
         private enum State

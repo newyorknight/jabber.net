@@ -13,7 +13,6 @@ namespace jabber.protocol
     /// for enums that are going to be put in attributes at the moment.
     /// TODO: support namespaces, use for element definitions.
     /// </summary>
-    [SVN(@"$Id$")]
     [AttributeUsage(AttributeTargets.Field)]
     public class XMLAttribute : Attribute
     {
@@ -40,7 +39,6 @@ namespace jabber.protocol
     /// <summary>
     /// Parse enums
     /// </summary>
-    [SVN(@"$Id$")]
     public class EnumParser
 	{
         private static Dictionary<Type, Dictionary<string, object>> s_vals = 

@@ -31,7 +31,6 @@ namespace muzzle
     ///
     /// Good gracious.  Did I really take the time to write this?
     /// </summary>
-    [SVN(@"$Id$")]
     public class Litmus : System.Windows.Forms.UserControl
     {
         private int               m_hist  = -1;

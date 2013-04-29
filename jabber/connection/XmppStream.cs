@@ -26,7 +26,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages option names.  These must be well-formed XML element names.
     /// </summary>
-    [SVN(@"$Id$")]
     public abstract class Options
     {
         /// <summary>
@@ -204,7 +203,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages the XMPP stream of the connection.
     /// </summary>
-    [SVN(@"$Id$")]
     abstract public class XmppStream :
         System.ComponentModel.Component,
         IStanzaEventListener

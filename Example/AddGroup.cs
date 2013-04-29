@@ -8,7 +8,6 @@ using bedrock.util;
 
 namespace Example
 {
-    [SVN(@"$Id$")]
     public class AddGroup : Form
     {
         private System.Windows.Forms.TextBox textBox1;

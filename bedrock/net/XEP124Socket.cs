@@ -21,7 +21,6 @@ namespace bedrock.net
     /// <summary>
     /// XEP-0124 Error conditions
     /// </summary>
-    [SVN(@"$Id$")]
     public class XEP124Exception : WebException
     {
         /// <summary>
@@ -38,7 +37,6 @@ namespace bedrock.net
     /// Make a XEP-124 (http://www.xmpp.org/extensions/xep-0124.html) polling "connection" look like a socket.
     /// TODO: get rid of the PipeStream, if possible.
     /// </summary>
-    [SVN(@"$Id$")]
     public class XEP124Socket : BaseSocket, IHttpSocket, IElementSocket, ISocketEventListener
     {
         /// <summary>

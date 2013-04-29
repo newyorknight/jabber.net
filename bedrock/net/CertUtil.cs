@@ -9,7 +9,6 @@ namespace bedrock.net
     /// <summary>
     /// Utilities for creating certificates
     /// </summary>
-    [SVN(@"$Id$")]
     public class CertUtil
     {
         /// <summary>

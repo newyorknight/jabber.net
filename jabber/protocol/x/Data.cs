@@ -9,7 +9,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// XData types.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum XDataType
     {
         /// <summary>
@@ -33,7 +32,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// Compare two x:data forms by form type.
     /// </summary>
-    [SVN(@"$Id$")]
     public class FormTypeComparer : System.Collections.Generic.Comparer<Data>
     {
         /// <summary>
@@ -51,7 +49,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// jabber:x:data support, as in http://www.xmpp.org/extensions/xep-0004.html.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Data : Element
     {
         /// <summary>
@@ -240,7 +237,6 @@ namespace jabber.protocol.x
     /// Types of fields.  This enum doesn't exactly match the XEP,
     /// since most of the field types aren't valid identifiers in C#.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum FieldType
     {
         /// <summary>
@@ -288,7 +284,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// Form field.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Field : Element
     {
         /// <summary>
@@ -571,7 +566,6 @@ namespace jabber.protocol.x
     /// <summary>
     /// Field options, for list-single and list-multi type fields.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Option : Element
     {
         /// <summary>

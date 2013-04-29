@@ -11,7 +11,6 @@ namespace test.bedrock.net
     /// <summary>
     ///  Not really async.
     /// </summary>
-    [SVN(@"$Id$")]
     [Ignore("Fails due to certificate.")]
     [TestFixture]
     public class SSLAsyncSocketTest : ISocketEventListener

@@ -8,7 +8,6 @@ using bedrock.util;
 
 namespace Example
 {
-    [SVN(@"$Id$")]
     public class PubSubDisplay : UserControl
     {
         private ListBox lbID;

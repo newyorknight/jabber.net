@@ -14,7 +14,6 @@ namespace test.jabber.protocol.iq
     /// <summary>
     /// Test Agents
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class AgentTest
     {

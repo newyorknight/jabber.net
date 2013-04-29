@@ -12,7 +12,6 @@ namespace muzzle
     /// <summary>
     /// Debug stream for XMPP, so I don't have write it every time.
     /// </summary>
-    [SVN(@"$Id$")]
     public class XmppDebugger : StreamControl
     {
         private RichTextBox rtSend;

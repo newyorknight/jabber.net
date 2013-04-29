@@ -12,7 +12,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// Stream features.  Will only be set by a version="1.0" or higher XMPP server.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Features : Element
     {
         /// <summary>

@@ -10,7 +10,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Presence type attribute
     /// </summary>
-    [SVN(@"$Id$")]
     public enum PresenceType
     {
         /// <summary>
@@ -55,7 +54,6 @@ namespace jabber.protocol.client
     /// <summary>
     /// Client presence packet.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Presence : Packet, IComparable<Presence>, IComparable
     {
         /// <summary>

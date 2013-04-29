@@ -11,7 +11,6 @@ using jabber.protocol.iq;
 
 namespace test.jabber.protocol.iq
 {
-    [SVN(@"$Id$")]
     [TestFixture]
     public class TimeTest
     {

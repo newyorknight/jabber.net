@@ -11,7 +11,6 @@ namespace jabber
     /// <summary>
     /// Informs the client that an invalid JID was entered.
     /// </summary>
-    [SVN(@"$Id$")]
     public class JIDFormatException : ApplicationException
     {
         /// <summary>
@@ -53,7 +52,6 @@ namespace jabber
     /// <summary>
     /// Provides simple JID management.
     /// </summary>
-    [SVN(@"$Id$")]
     [System.ComponentModel.TypeConverter(typeof(JIDTypeConverter))]
     public class JID : IComparable
     {

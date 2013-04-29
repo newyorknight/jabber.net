@@ -9,7 +9,6 @@ namespace test.bedrock.net
     /// <summary>
     ///    Summary description for AsyncSocketTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class AsyncSocketTest : ISocketEventListener
     {

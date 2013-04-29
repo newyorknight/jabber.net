@@ -13,7 +13,6 @@ namespace jabber.connection
     /// <summary>
     /// Manages the HTTP Polling XMPP stream.
     /// </summary>
-    [SVN(@"$Id$")]
     public class PollingStanzaStream : HttpStanzaStream
     {
         ///<summary>

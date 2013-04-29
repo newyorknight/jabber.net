@@ -17,7 +17,6 @@ namespace Example
     /// <summary>
     /// Summary description for MainForm.
     /// </summary>
-    [SVN(@"$Id$")]
     public class MainForm : Form
     {
         #region Private Members

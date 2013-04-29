@@ -8,7 +8,6 @@ namespace jabber.protocol
     /// <summary>
     /// Namespace constants for http://etherx.jabber.org/streams.
     /// </summary>
-    [SVN(@"$Id$")]
     public class URI
     {
         /// <summary>

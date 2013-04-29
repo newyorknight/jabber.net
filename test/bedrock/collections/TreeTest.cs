@@ -10,7 +10,6 @@ namespace test.bedrock.collections
     /// <summary>
     /// Summary description for TreeTest.
     /// </summary>
-    [SVN(@"$Id$")]
     [TestFixture]
     public class TreeTest
     {

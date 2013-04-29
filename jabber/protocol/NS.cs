@@ -6,7 +6,6 @@ namespace jabber.protocol
     /// <summary>
     /// Namespace stack.
     /// </summary>
-    [SVN(@"$Id$")]
     public class NS
     {
         private Stack m_stack = new Stack();

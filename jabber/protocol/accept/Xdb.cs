@@ -9,7 +9,6 @@ namespace jabber.protocol.accept
     /// <summary>
     /// The type attribute
     /// </summary>
-    [SVN(@"$Id$")]
     public enum XdbType
     {
         /// <summary>
@@ -37,7 +36,6 @@ namespace jabber.protocol.accept
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [SVN(@"$Id$")]
     public enum XdbAction
     {
         /// <summary>
@@ -57,7 +55,6 @@ namespace jabber.protocol.accept
     /// <summary>
     /// The XDB packet.
     /// </summary>
-    [SVN(@"$Id$")]
     public class Xdb : jabber.protocol.Packet
     {
         /// <summary>

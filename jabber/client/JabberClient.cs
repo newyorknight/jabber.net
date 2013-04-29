@@ -38,7 +38,6 @@ namespace jabber.client
     /// You can install this in your Toolbox, drop onto a form, a service, and so on.
     /// This class hooks into the OnProtocol event and calls the Connect() method.
     /// </summary>
-    [SVN(@"$Id$")]
     public class JabberClient : XmppStream
     {
         private static readonly object[][] DEFAULTS = new object[][] {
@@ -967,7 +966,6 @@ namespace jabber.client
     /// <summary>
     /// Contains the "Getting authorization" information.
     /// </summary>
-    [SVN(@"$Id$")]
     public class GetAuthState : jabber.connection.BaseState
     {
         /// <summary>
@@ -979,7 +977,6 @@ namespace jabber.client
     /// <summary>
     /// Contains the "Setting authorization" information.
     /// </summary>
-    [SVN(@"$Id$")]
     public class SetAuthState : jabber.connection.BaseState
     {
         /// <summary>
@@ -992,7 +989,6 @@ namespace jabber.client
     /// Informs the client that the JabberClient is in
     /// the "Waiting for manual login" state.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ManualLoginState : jabber.connection.BaseState
     {
         /// <summary>
@@ -1006,7 +1002,6 @@ namespace jabber.client
     /// the "Waiting for manual login" state, but when Login()
     /// happens, it should try SASL.
     /// </summary>
-    [SVN(@"$Id$")]
     public class ManualSASLLoginState : jabber.connection.BaseState
     {
         /// <summary>

@@ -17,7 +17,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// IQ packet with an oob query element inside.
     /// </summary>
-    [SVN(@"$Id$")]
     public class OobIQ : jabber.protocol.client.TypedIQ<OOB>
     {
         /// <summary>
@@ -32,7 +31,6 @@ namespace jabber.protocol.iq
     /// <summary>
     /// An oob query element for file transfer.
     /// </summary>
-    [SVN(@"$Id$")]
     public class OOB : Element
     {
         /// <summary>

@@ -8,7 +8,6 @@ using jabber.connection;
 
 namespace Example
 {
-    [SVN(@"$Id$")]
     public class PubSubSubcribeForm : Form
     {
         private Label label1;

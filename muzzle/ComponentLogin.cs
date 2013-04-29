@@ -23,7 +23,6 @@ namespace muzzle
     ///     jc.Connect();
     /// }
     /// </example>
-    [SVN(@"$Id$")]
     public class ComponentLogin : OptionForm
     {
 

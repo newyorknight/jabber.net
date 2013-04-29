@@ -9,7 +9,6 @@ using jabber;
 
 namespace Example
 {
-    [SVN(@"$Id$")]
     public class AddContact : Form
     {
 

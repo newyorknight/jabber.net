@@ -16,7 +16,6 @@ namespace bedrock.util
     /// <summary>
     /// Idle time calculations and notifications.
     /// </summary>
-    [SVN(@"$Id$")]
     public class IdleTime : System.ComponentModel.Component
     {
         [StructLayout(LayoutKind.Sequential)]

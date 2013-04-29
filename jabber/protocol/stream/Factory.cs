@@ -9,7 +9,6 @@ namespace jabber.protocol.stream
     /// <summary>
     /// ElementFactory for http://etherx.jabber.org/streams
     /// </summary>
-    [SVN(@"$Id$")]
     public class Factory : jabber.protocol.IPacketTypes
     {
         private static QnameType[] s_qnt = new QnameType[]
