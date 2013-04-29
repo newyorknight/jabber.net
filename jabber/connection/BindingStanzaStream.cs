@@ -45,4 +45,3 @@ namespace jabber.connection
             base.Close(false);
         }
 	}
-}

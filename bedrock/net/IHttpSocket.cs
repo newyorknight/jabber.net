@@ -16,4 +16,3 @@ namespace bedrock.net
         /// <param name="elem"></param>
         void Write(System.Xml.XmlElement elem);
     }
-}
