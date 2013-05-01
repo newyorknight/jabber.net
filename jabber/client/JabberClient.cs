@@ -1,6 +1,5 @@
 using System;
 
-using System.ComponentModel;
 using System.Collections;
 using System.Diagnostics;
 using System.Xml;
@@ -62,17 +61,6 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Creates a new Jabber client and associates it with the parent window.
-        /// Required for Windows.Forms Class Composition Designer support
-        /// </summary>
-        /// <param name="container">Parent container.</param>
-        public JabberClient(System.ComponentModel.IContainer container) :
-            base(container)
-        {
-            init();
-        }
-
-        /// <summary>
         /// Creates a new JabberClient.
         /// Required for Windows.Forms Class Composition Designer support.
         /// </summary>
@@ -93,85 +81,65 @@ namespace jabber.client
         */
 
         /// <summary>
-        /// Informs the client that it received a presence packet.
+        /// Triggers when the client receives a presence packet.
         /// </summary>
-        [Category("Protocol")]
-        [Description("We received a presence packet.")]
         public event PresenceHandler OnPresence;
 
         /// <summary>
-        /// Informs the client that it received a message packet.
+        /// triggers when the client receives a message packet.
         /// </summary>
-        [Category("Protocol")]
-        [Description("We received a message packet.")]
         public event MessageHandler OnMessage;
 
         /// <summary>
-        /// Informs the client that it received an IQ packet.
+        /// Triggers when the client receives an IQ packet.
         /// </summary>
-        [Category("Protocol")]
-        [Description("We received an IQ packet.")]
         public event IQHandler OnIQ;
 
         /// <summary>
-        /// Informs the client that the authentication has failed. The connection is not
+        /// Triggers when the authentication has failed. The connection is not
         /// terminated if there is an authentication error, and there
         /// is at least one event handler for this event.
         /// </summary>
-        [Category("Protocol")]
-        [Description("Authentication failed.")]
         public event ProtocolHandler OnAuthError;
 
         /// <summary>
-        /// Informs the client that the presence is about to be sent.
+        /// Triggers when presence is about to be sent.
         /// This gives a chance to modify outbound presence (fore example, entity caps).
         /// </summary>
-        [Category("Protocol")]
-        [Description("Presence is about to be sent.  This gives a chance to modify outbound presence (e.g. entity caps)")]
         public event PresenceHandler OnBeforePresenceOut;
 
         /// <summary>
-        /// Informs the client that the presence has been sent.
+        /// Triggers after the presence has been sent.
         /// This gives a chance to send presence to other things, such as chat rooms.
         /// </summary>
-        [Category("Protocol")]
-        [Description("Informs the client that the presence has been sent.  This gives a chance to send presence to other things, such as chat rooms.")]
         public event PresenceHandler OnAfterPresenceOut;
 
         /// <summary>
-        /// Determines if SutoLogin is false, and if it is time to log in.
+        /// Determines if AutoLogin is false, and if it is time to log in.
         /// This callback will receive the results of the IQ type=get
-        /// in the jabber:iq:auth namespace.  When login is completed,
-        /// IsConnected property is set to true.  If there is a login error, the
+        /// in the jabber:iq:auth namespace. When login is completed,
+        /// IsConnected property is set to true. If there is a login error, the
         /// FireAuthError() method is called.
         /// </summary>
-        [Category("Protocol")]
-        [Description("AutoLogin is false, and it's time to log in.")]
         public event bedrock.ObjectHandler OnLoginRequired;
 
         /// <summary>
-        /// Informs the client if the registration succeeded or failed.
+        /// Triggers when registration completes, regardless of success status.
         /// </summary>
-        [Category("Protocol")]
-        [Description("After calling Register(), the registration succeeded or failed.")]
         public event IQHandler OnRegistered;
 
         /// <summary>
-        /// Allows the user to enter registration requested information before sending to the XMPP server.
+        /// Triggers when user info is required for registration.
         ///
         /// WARNING: Make sure you do not return from this handler until the IQ is filled in.
         /// It is now safe to call UI elements, since this callback is now on the GUI thread if
         /// the InvokeControl is set.
         /// </summary>
-        [Category("Protocol")]
-        [Description("After calling Register, information about the user is required.")]
         public event RegisterInfoHandler OnRegisterInfo;
 
         /// <summary>
-        /// Retrieves/Sets the username to connect as.
+        /// The username to connect as.
         /// </summary>
-        [Description("The username to connect as.")]
-        [Category("Jabber")]
         public string User
         {
             get { return this[Options.USER] as string; }
@@ -179,11 +147,8 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Gets the priority for this connection.
+        /// Gets the priority for this connection. Default value is 0 (zero).
         /// </summary>
-        [Description("Priority for this connection.")]
-        [Category("Jabber")]
-        [DefaultValue(0)]
         public int Priority
         {
             get { return (int)this[Options.PRIORITY]; }
@@ -191,16 +156,10 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Gets or sets the password to use for connecting to the XMPP server.
+        /// The password to use for connecting to the XMPP server.
         /// This may be sent across the wire plaintext if the XMPP
         /// server doesn't support digest and PlaintextAuth is set to true.
         /// </summary>
-        [Description("The password to use for connecting.  " +
-             "This may be sent across the wire plaintext, " +
-             "if the server doesn't support digest, " +
-             "and PlaintextAuth is true")]
-        [Category("Jabber")]
-        [PasswordPropertyText]
         public string Password
         {
             get { return this[Options.PASSWORD] as string; }
@@ -210,9 +169,6 @@ namespace jabber.client
         /// <summary>
         /// Allows auto-login to be used for the connection to the XMPP server if set to true.
         /// </summary>
-        [Description("Automatically log in on connection.")]
-        [DefaultValue(true)]
-        [Category("Automation")]
         public bool AutoLogin
         {
             get { return (bool)this[Options.AUTO_LOGIN]; }
@@ -220,11 +176,8 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Retrieves the roster on connection.
+        /// Gets the roster on connection.
         /// </summary>
-        [Description("Retrieves the roster on connection.")]
-        [DefaultValue(true)]
-        [Category("Automation")]
         public bool AutoRoster
         {
             get { return (bool)this[Options.AUTO_ROSTER]; }
@@ -235,9 +188,6 @@ namespace jabber.client
         /// Sends 501/feature-not-implemented back to the client when an IQ
         /// has not been handled if set to true.
         /// </summary>
-        [Description("Automatically send back 501/feature-not-implemented to IQs that have not been handled.")]
-        [DefaultValue(true)]
-        [Category("Automation")]
         public bool AutoIQErrors
         {
             get { return (bool)this[Options.AUTO_IQ_ERRORS]; }
@@ -248,9 +198,6 @@ namespace jabber.client
         /// Sends presence information when the connection has been established
         /// if set to true.
         /// </summary>
-        [Description("Automatically send presence on connection.")]
-        [DefaultValue(true)]
-        [Category("Automation")]
         public bool AutoPresence
         {
             get { return (bool)this[Options.AUTO_PRESENCE]; }
@@ -261,10 +208,6 @@ namespace jabber.client
         /// Gets or sets the connecting resource.
         /// Used to identify a unique connection.
         /// </summary>
-        [Description("Gets or sets the connecting resource.  " +
-             "Used to identify a unique connection.")]
-        [DefaultValue("Jabber.Net")]
-        [Category("Jabber")]
         public string Resource
         {
             get { return this[Options.RESOURCE] as string; }
@@ -274,7 +217,6 @@ namespace jabber.client
         /// <summary>
         /// Gets the stream namespace for this connection.
         /// </summary>
-        [Browsable(false)]
         protected override string NS
         {
             get { return URI.CLIENT; }
@@ -283,8 +225,6 @@ namespace jabber.client
         /// <summary>
         /// Are we currently connected?
         /// </summary>
-        [Browsable(false)]
-        [DefaultValue(false)]
         public override bool IsAuthenticated
         {
             get { return base.IsAuthenticated; }
@@ -303,9 +243,9 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Connects to the XMPP server.  This happens asynchronously, and
+        /// Connects to the XMPP server. This happens asynchronously, and
         /// could take a couple of seconds to get the full handshake
-        /// completed.  This will authenticate, send presence, and request
+        /// completed. This will authenticate, send presence, and request
         /// roster info, if the Auto* properties are set.
         /// </summary>
         public override void Connect()
@@ -582,10 +522,7 @@ namespace jabber.client
             {
                 if (OnRegistered != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnRegistered, new object[] {this, iq});
-                    else
-                        OnRegistered(this, iq);
+                    OnRegistered(this, iq);
                 }
             }
             else if (iq.Type == IQType.result)
@@ -619,11 +556,7 @@ namespace jabber.client
                 bool res = true;
                 if (OnRegisterInfo != null)
                 {
-                    if (InvokeRequired)
-                        // Don't use CheckedInvoke, since we want this to be synchronous
-                        res = (bool)this.InvokeControl.Invoke(OnRegisterInfo, new object[] { this, r });
-                    else
-                        res = OnRegisterInfo(this, r);
+                    res = OnRegisterInfo(this, r);
                     if (xdata != null)
                     {
                         f = xdata.GetField("username");
@@ -654,12 +587,7 @@ namespace jabber.client
 
         private void OnSetRegister(object sender, IQ iq, object data)
         {
-            if (OnRegistered == null)
-                return;
-
-            if (InvokeRequired)
-                CheckedInvoke(OnRegistered, new object[] {this, iq});
-            else
+            if (OnRegistered != null)
                 OnRegistered(this, iq);
         }
 
@@ -737,10 +665,7 @@ namespace jabber.client
                 Presence p = tag as Presence;
                 if (p != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnPresence, new object[] {this, p});
-                    else
-                        OnPresence(this, p);
+                    OnPresence(this, p);
                     return;
                 }
             }
@@ -749,10 +674,7 @@ namespace jabber.client
                 Message m = tag as Message;
                 if (m != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnMessage, new object[] {this, m});
-                    else
-                        OnMessage(this, m);
+                    OnMessage(this, m);
                     return;
                 }
             }
@@ -760,10 +682,7 @@ namespace jabber.client
             IQ i = tag as IQ;
             if (i != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(new IQHandler(FireOnIQ) , new object[] { this, i });
-                else
-                    FireOnIQ(this, i);
+                FireOnIQ(this, i);
                 return;
             }
         }
@@ -795,10 +714,7 @@ namespace jabber.client
         {
             if (OnAuthError != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnAuthError, new object[] { this, i });
-                else
-                    OnAuthError(this, i);
+                OnAuthError(this, i);
             }
             else
             {
@@ -824,10 +740,7 @@ namespace jabber.client
 
             if (OnLoginRequired != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnLoginRequired, new object[] { this });
-                else
-                    OnLoginRequired(this);
+                OnLoginRequired(this);
             }
             else
             {

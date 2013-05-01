@@ -61,14 +61,6 @@ namespace muzzle
         {
             get
             {
-                // If we are running in the designer, let's try to auto-hook a JabberClient
-                if ((m_xmpp == null) && DesignMode)
-                {
-                    IDesignerHost host = (IDesignerHost)base.GetService(typeof(IDesignerHost));
-                    if (host == null)
-                        return null;
-                    m_xmpp = StreamComponent.GetStreamFromHost(host);
-                }
                 return m_xmpp;
             }
             set

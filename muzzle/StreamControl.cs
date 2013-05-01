@@ -35,13 +35,6 @@ namespace muzzle
         {
             get
             {
-                // If we are running in the designer, let's try to get an XmppStream control
-                // from the environment.
-                if ((this.m_stream == null) && DesignMode)
-                {
-                    IDesignerHost host = (IDesignerHost)base.GetService(typeof(IDesignerHost));
-                    this.Stream = StreamComponent.GetStreamFromHost(host);
-                }
                 return m_stream;
             }
             set

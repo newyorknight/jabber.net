@@ -1,7 +1,5 @@
 using System;
 
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Collections;
 using gen = System.Collections.Generic;
 using System.Diagnostics;
@@ -29,32 +27,14 @@ namespace jabber.client
     /// </summary>
     public class PresenceManager : jabber.connection.StreamComponent, IEnumerable
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-#pragma warning disable 0414
-        private System.ComponentModel.Container components = null;
-#pragma warning restore 0414
- 
         private Tree m_items = new Tree();
         private CapsManager m_caps = null;
-
-        /// <summary>
-        /// Constructs a PresenceManager object and adds it to a container.
-        /// </summary>
-        /// <param name="container">Parent container.</param>
-        public PresenceManager(System.ComponentModel.IContainer container) : this()
-        {
-            container.Add(this);
-        }
 
         /// <summary>
         /// Constructs a new PresenceManager object.
         /// </summary>
         public PresenceManager()
         {
-            InitializeComponent();
-
             this.OnStreamChanged += new bedrock.ObjectHandler(PresenceManager_OnStreamChanged);
         }
 
@@ -71,11 +51,6 @@ namespace jabber.client
         /// <summary>
         /// Gets or sets the JabberClient associated with the Presence Manager.
         /// </summary>
-        [Description("Gets or sets the JabberClient associated with the Presence Manager.")]
-        [Category("Jabber")]
-        [Browsable(false)]
-        [Obsolete("Use the Stream property instead")]
-        [ReadOnly(true)]
         public JabberClient Client
         {
             get { return (JabberClient)this.Stream; }
@@ -85,17 +60,10 @@ namespace jabber.client
         /// <summary>
         /// The CapsManager for this view
         /// </summary>
-        [Category("Jabber")]
         public CapsManager CapsManager
         {
             get
             {
-                // If we are running in the designer, let's try to auto-hook a CapsManager
-                if ((m_caps == null) && DesignMode)
-                {
-                    IDesignerHost host = (IDesignerHost)base.GetService(typeof(IDesignerHost));
-                    this.CapsManager = (CapsManager)jabber.connection.StreamComponent.GetComponentFromHost(host, typeof(CapsManager));
-                }
                 return m_caps;
             }
             set
@@ -294,18 +262,6 @@ namespace jabber.client
             return upm.GetAll();
         }
 
-
-        #region Component Designer generated code
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            components = new System.ComponentModel.Container();
-        }
-        #endregion
-
         /// <summary>
         /// Iterate over all of the JIDs we have not-unavilable presence from.
         /// </summary>
@@ -401,6 +357,11 @@ namespace jabber.client
                 return null;
             }
 
+            /// <summary>
+            /// Add, or update, the presence manager with a presence packet.
+            /// </summary>
+            /// <param name="p">Presence packet to add to, or update in, the presence manager.</param>
+            /// <param name="handler"></param>
             public void AddPresence(Presence p, PresenceManager handler)
             {
                 JID from = p.From;
@@ -433,6 +394,11 @@ namespace jabber.client
                 }
             }
 
+            /// <summary>
+            /// Removes presence data from the manager.
+            /// </summary>
+            /// <param name="p">Presence packet to remove from the mananger.</param>
+            /// <param name="handler"></param>
             public void RemovePresence(Presence p, PresenceManager handler)
             {
                 JID from = p.From;
@@ -462,11 +428,19 @@ namespace jabber.client
                 }
             }
 
+            /// <summary>
+            /// Number of presence packets currently managed.
+            /// </summary>
             public int Count
             {
                 get { return m_all.Count; }
             }
 
+            /// <summary>
+            /// Gets the presence packet for a particular resource.
+            /// </summary>
+            /// <param name="Resource">The name of the resource to get presence data for.</param>
+            /// <returns></returns>
             public Presence this[string Resource]
             {
                 get
@@ -490,6 +464,10 @@ namespace jabber.client
                 }
             }
 
+            /// <summary>
+            /// Get all currently managed presence data.
+            /// </summary>
+            /// <returns></returns>
             public Presence[] GetAll()
             {
                 Presence[] all = new Presence[m_all.Count];

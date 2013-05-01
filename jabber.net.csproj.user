@@ -21,15 +21,17 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <RemoteDebugMachine>
     </RemoteDebugMachine>
-    <StartAction>Program</StartAction>
+    <StartAction>Project</StartAction>
     <StartArguments>
     </StartArguments>
     <StartPage>
     </StartPage>
-    <StartProgram>D:\Development\Jabber\Devel\Applications\protocert\src\ProtoCert-GUI\bin\Debug\ProtoCert-GUI.exe</StartProgram>
+    <StartProgram>
+    </StartProgram>
     <StartURL>
     </StartURL>
-    <StartWorkingDirectory>D:\Development\Jabber\Devel\Applications\protocert\src\ProtoCert-GUI\bin\Debug\</StartWorkingDirectory>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
     <StartWithIE>false</StartWithIE>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

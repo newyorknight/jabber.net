@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 
 using bedrock.util;
 using jabber.connection;
@@ -29,29 +27,16 @@ namespace jabber.client
         private Dictionary<JID, BookmarkConference> m_conferences = new Dictionary<JID, BookmarkConference>();
 
         /// <summary>
-        /// Create
+        /// Create a new bookmark manager.
         /// </summary>
 		public BookmarkManager()
 		{
-			InitializeComponent();
             this.OnStreamChanged += new bedrock.ObjectHandler(BookmarkManager_OnStreamChanged);
-		}
-
-        /// <summary>
-        /// Create
-        /// </summary>
-        /// <param name="container"></param>
-		public BookmarkManager(IContainer container) : this()
-		{
-			container.Add(this);
 		}
 
         /// <summary>
         /// Automatically request bookmarks using iq:private on login.
         /// </summary>
-        [Category("Bookmarks")]
-        [Description("Automatically request bookmarks using iq:private on login.")]
-        [DefaultValue(true)]
         public bool AutoPrivate
         {
             get { return m_autoPrivate; }
@@ -59,40 +44,28 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// A conference bookmark has been .
+        /// Triggers when a conference bookmark is added.
         /// </summary>
-        [Category("Bookmarks")]
-        [Description("A conference bookmark has been added to the list.")]
         public event BookmarkConferenceDelegate OnConferenceAdd;
 
         /// <summary>
-        /// A conference bookmark has been removed from the list.
+        /// Triggers when a conference bookmark is removed.
         /// </summary>
-        [Category("Bookmarks")]
-        [Description("A conference bookmark has been removed from the list.")]
         public event BookmarkConferenceDelegate OnConferenceRemove;
 
         /// <summary>
         /// A ConferenceManager into which to auto-join conference rooms.
         /// </summary>
-        [Category("Jabber")]
         public ConferenceManager ConferenceManager
         {
             get
             {
-                // If we are running in the designer, let's try to auto-hook a ConferenceManager
-                if ((m_confManager == null) && DesignMode)
-                {
-                    IDesignerHost host = (IDesignerHost)base.GetService(typeof(IDesignerHost));
-                    this.ConferenceManager = (ConferenceManager)jabber.connection.StreamComponent.GetComponentFromHost(host, typeof(ConferenceManager));
-                }
                 return m_confManager;
             }
             set
             {
-                if ((object)m_confManager == (object)value)
-                    return;
-                m_confManager = value;
+                if ((object)m_confManager != (object)value)
+                    m_confManager = value;
             }
         }
 
@@ -101,10 +74,8 @@ namespace jabber.client
             m_stream.OnDisconnect += new bedrock.ObjectHandler(m_stream_OnDisconnect);
             m_stream.OnError += new bedrock.ExceptionHandler(m_stream_OnError);
             JabberClient cli = m_stream as JabberClient;
-            if (cli == null)
-                return;
-
-            cli.OnAuthenticate += new bedrock.ObjectHandler(cli_OnAuthenticate);
+            if (cli != null)
+                cli.OnAuthenticate += new bedrock.ObjectHandler(cli_OnAuthenticate);
         }
 
         private void m_stream_OnError(object sender, Exception ex)
@@ -223,12 +194,12 @@ namespace jabber.client
         }
 
         /// <summary>
-        /// Add a conference room to the bookmark list
+        /// Add a conference room to the bookmark list.
         /// </summary>
         /// <param name="jid">The room@service JID of the room</param>
         /// <param name="name">Human-readable text</param>
         /// <param name="autoJoin">Join on login</param>
-        /// <param name="nick">Room nickname.  May be null.</param>
+        /// <param name="nick">Room nickname. May be null.</param>
         /// <returns></returns>
         public BookmarkConference AddConference(JID jid, string name, bool autoJoin, string nick)
         {
@@ -244,36 +215,5 @@ namespace jabber.client
             this[jid] = c;
             return c;
         }
-
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Component Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            components = new System.ComponentModel.Container();
-        }
-
-        #endregion
 	}
 }

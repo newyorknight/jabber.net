@@ -1,8 +1,6 @@
 using System;
 
 using System.Collections;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -203,9 +201,7 @@ namespace jabber.connection
     /// <summary>
     /// Manages the XMPP stream of the connection.
     /// </summary>
-    abstract public class XmppStream :
-        System.ComponentModel.Component,
-        IStanzaEventListener
+    abstract public class XmppStream : IStanzaEventListener
     {
         private static readonly object[][] DEFAULTS = new object[][] {
             new object[] {Options.TO, "jabber.com"},
@@ -253,29 +249,11 @@ namespace jabber.connection
         private bool m_compressionOn = false;
 
         private XmlNamespaceManager m_ns;
-        private ISynchronizeInvoke m_invoker = null;
 
         // XMPP v1 stuff
         private string m_serverVersion = null;
         private SASLProcessor m_saslProc = null;
         private Features m_features = null; // the last features tag received.
-
-
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-#pragma warning disable 0414
-        private System.ComponentModel.Container components = new System.ComponentModel.Container();
-#pragma warning restore 0414
-        
-        /// <summary>
-        /// Creates a new XMPP stream and associates it with the parent control.
-        /// </summary>
-        /// <param name="container">Parent control.</param>
-        public XmppStream(System.ComponentModel.IContainer container) : this()
-        {
-            container.Add(this);
-        }
 
         /// <summary>
         /// Sets defaults in bulk.
@@ -318,17 +296,8 @@ namespace jabber.connection
             set
             {
                 m_properties[prop] = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs(prop));
-                }
             }
         }
-
-        /// <summary>
-        /// Informs the client that a property changed on the instance.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /*
         /// <summary>
@@ -366,14 +335,12 @@ namespace jabber.connection
         /// Use for debugging only.
         /// Will NOT be complete nodes at a time.
         /// </summary>
-        [Category("Debug")]
         public event bedrock.TextHandler OnWriteText;
 
         /// <summary>
         /// Informs the client that text was read from the server.
         /// Use for debugging only. Will NOT be complete nodes at a time.
         /// </summary>
-        [Category("Debug")]
         public event bedrock.TextHandler OnReadText;
 
         /// <summary>
@@ -383,14 +350,12 @@ namespace jabber.connection
         /// call Invoke.  Make sure you add your packet factories before
         /// calling Invoke, however.
         /// </summary>
-        [Category("Stream")]
         public event StreamHandler OnStreamInit;
 
         /// <summary>
         /// Informs the client that an error occurred when processing.
         /// The connection has been closed.
         /// </summary>
-        [Category("Stream")]
         public event bedrock.ExceptionHandler OnError;
 
         /// <summary>
@@ -398,7 +363,6 @@ namespace jabber.connection
         /// This is a union of the OnPresence, OnMessage, and OnIQ methods.
         /// Use this *or* the other 3 methods, but not both, as a matter of style.
         /// </summary>
-        [Category("Stream")]
         public event ProtocolHandler OnProtocol;
 
         /// <summary>
@@ -406,7 +370,6 @@ namespace jabber.connection
         /// has been received.  Can be called multiple  times for
         /// a single session, with XMPP.
         /// </summary>
-        [Category("Stream")]
         public event ProtocolHandler OnStreamHeader;
 
         /// <summary>
@@ -427,40 +390,33 @@ namespace jabber.connection
         /// <summary>
         /// Informs the client that it received a stream:error packet.
         /// </summary>
-        [Category("Stream")]
-        [Description("We received stream:error packet.")]
         public event ProtocolHandler OnStreamError;
 
         /// <summary>
         /// Informs the client that the connection is complete and the user is authenticated.
         /// </summary>
-        [Category("Stream")]
         public event bedrock.ObjectHandler OnAuthenticate;
 
         /// <summary>
         /// Informs the client that the connection is connected,
         /// but no stream:stream has been sent yet.
         /// </summary>
-        [Category("Stream")]
         public event StanzaStreamHandler OnConnect;
 
         /// <summary>
         /// Informs the client that the connection is disconnected.
         /// </summary>
-        [Category("Stream")]
         public event bedrock.ObjectHandler OnDisconnect;
 
         /// <summary>
         /// An invalid cert was received from the other side.  Set this event and return true to
         /// use the cert anyway.  If the event is not set, an ugly user interface will be displayed.
         /// </summary>
-        [Category("Stream")]
         public event System.Net.Security.RemoteCertificateValidationCallback OnInvalidCertificate;
 
         /// <summary>
         /// Gets the tracker for sending IQ packets.
         /// </summary>
-        [Browsable(false)]
         public IIQTracker Tracker
         {
             get { return m_tracker; }
@@ -469,9 +425,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the name of the XMPP server to connect to.
         /// </summary>
-        [Description("Gets or sets the name of the XMPP server to connect to.")]
-        [DefaultValue("jabber.com")]
-        [Category("Jabber")]
         public virtual string Server
         {
             get { return this[Options.TO] as string; }
@@ -484,9 +437,6 @@ namespace jabber.connection
         /// of the XMPP server to connect to. If none is specified, the Server will
         /// be used. Eventually, when SRV is supported, this will be deprecated.
         /// </summary>
-        [Description("")]
-        [DefaultValue(null)]
-        [Category("Jabber")]
         public string NetworkHost
         {
             get { return this[Options.NETWORK_HOST] as string; }
@@ -496,9 +446,6 @@ namespace jabber.connection
         /// <summary>
         /// Specifies the TCP port to connect to.
         /// </summary>
-        [Description("Specifies the TCP port to connect to.")]
-        [DefaultValue(5222)]
-        [Category("Jabber")]
         public int Port
         {
             get { return (int)this[Options.PORT]; }
@@ -509,9 +456,6 @@ namespace jabber.connection
         /// Specifies whether plaintext authentication is used for connecting
         /// to the XMPP server.
         /// </summary>
-        [Description("Allow plaintext authentication?")]
-        [DefaultValue(false)]
-        [Category("Jabber")]
         public bool PlaintextAuth
         {
             get { return (bool)this[Options.PLAINTEXT]; }
@@ -521,7 +465,6 @@ namespace jabber.connection
         /// <summary>
         /// Determines whether or not the current connection is secured with SSL/TLS.
         /// </summary>
-        [Browsable(false)]
         public bool SSLon
         {
             get { return m_sslOn; }
@@ -530,7 +473,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets the JID from the connection.
         /// </summary>
-        [Browsable(false)]
         public JID JID
         {
             // Make sure to set this option in subclasses.
@@ -552,7 +494,6 @@ namespace jabber.connection
         /// Determines whether or not the current connection uses
         /// XMPP stream compression (XEP-138).
         /// </summary>
-        [Browsable(false)]
         public bool CompressionOn
         {
             get { return m_compressionOn; }
@@ -562,9 +503,6 @@ namespace jabber.connection
         /// Determines whether SSL3/TLS1 authentication is used when a user
         /// connects to the XMPP server.
         /// </summary>
-        [Description("Do SSL3/TLS1 on startup.")]
-        [DefaultValue(false)]
-        [Category("Jabber")]
         public bool SSL
         {
             get { return (bool)this[Options.SSL]; }
@@ -574,7 +512,6 @@ namespace jabber.connection
         /// <summary>
         /// Allows Start-TLS on connection if the server supports it and if set to true.
         /// </summary>
-        [Browsable(false)]
         public bool AutoStartTLS
         {
             get { return (bool)this[Options.AUTO_TLS]; }
@@ -585,7 +522,6 @@ namespace jabber.connection
         /// Allows start compression on connection if the server supports it and
         /// is set to true.
         /// </summary>
-        [Browsable(false)]
         public bool AutoStartCompression
         {
             get { return (bool)this[Options.AUTO_COMPRESS]; }
@@ -596,7 +532,6 @@ namespace jabber.connection
         /// Gets or sets the certificate to be used for the local
         /// side of sockets when SSL is enabled.
         /// </summary>
-        [Browsable(false)]
         public X509Certificate LocalCertificate
         {
             get { return this[Options.LOCAL_CERTIFICATE] as X509Certificate; }
@@ -632,43 +567,8 @@ namespace jabber.connection
         }
 
         /// <summary>
-        /// Calls Invoke() for all callbacks on this control.
-        /// </summary>
-        [Description("Invoke all callbacks on this control")]
-        [DefaultValue(null)]
-        [Category("Jabber")]
-        public ISynchronizeInvoke InvokeControl
-        {
-            get
-            {
-                // If we are running in the designer, let's try to get
-                // an invoke control from the environment.  VB
-                // programmers can't seem to follow directions.
-                if ((this.m_invoker == null) && DesignMode)
-                {
-                    IDesignerHost host = (IDesignerHost)base.GetService(typeof(IDesignerHost));
-                    if (host != null)
-                    {
-                        object root = host.RootComponent;
-                        if ((root != null) && (root is ISynchronizeInvoke))
-                        {
-                            m_invoker = (ISynchronizeInvoke)root;
-                            // TODO: fire some sort of propertyChanged event,
-                            // so that old code gets cleaned up correctly.
-                        }
-                    }
-                }
-                return m_invoker;
-            }
-            set { m_invoker = value; }
-        }
-
-        /// <summary>
         /// Gets or sets the keep-alive interval in seconds.
         /// </summary>
-        [Description("Gets or sets the keep-alive interval in seconds")]
-        [Category("Jabber")]
-        [DefaultValue(20f)]
         public float KeepAlive
         {
             get { return ((int)this[Options.KEEP_ALIVE]) / 1000f; }
@@ -680,9 +580,6 @@ namespace jabber.connection
         /// reconnecting if the connection drops.
         /// -1 to disable, 0 for immediate.
         /// </summary>
-        [Description("Automatically reconnect a connection.")]
-        [DefaultValue(30)]
-        [Category("Automation")]
         public float AutoReconnect
         {
             get { return ((int)this[Options.RECONNECT_TIMEOUT]) / 1000f; }
@@ -692,9 +589,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the proxy type, such as none, SOCKS5 and so on.
         /// </summary>
-        [Description("Gets or sets the proxy type, such as none, SOCKS5 and so on.")]
-        [DefaultValue(ProxyType.None)]
-        [Category("Proxy")]
         public ProxyType Proxy
         {
             get { return (ProxyType)this[Options.PROXY_TYPE]; }
@@ -704,9 +598,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the connection type, such as Socket, HTTP polling and so on.
         /// </summary>
-        [Description("Gets or sets the connection type, such as Socket, HTTP polling and so on.")]
-        [DefaultValue(ConnectionType.Socket)]
-        [Category("Proxy")]
         public ConnectionType Connection
         {
             get { return (ConnectionType)this[Options.CONNECTION_TYPE]; }
@@ -716,9 +607,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the hostname running the proxy.
         /// </summary>
-        [Description("Gets or sets the hostname running the proxy.")]
-        [DefaultValue(null)]
-        [Category("Proxy")]
         public string ProxyHost
         {
             get { return this[Options.PROXY_HOST] as string; }
@@ -728,9 +616,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the port number of the proxy host.
         /// </summary>
-        [Description("Gets or sets the port number of the proxy host.")]
-        [DefaultValue(1080)]
-        [Category("Proxy")]
         public int ProxyPort
         {
             get { return (int)this[Options.PROXY_PORT]; }
@@ -740,9 +625,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the authentication username for the SOCKS5 proxy.
         /// </summary>
-        [Description("Gets or sets the authentication username for the SOCKS5 proxy.")]
-        [DefaultValue(null)]
-        [Category("Proxy")]
         public string ProxyUsername
         {
             get { return this[Options.PROXY_USER] as string; }
@@ -752,9 +634,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the authentication password for the SOCKS5 proxy.
         /// </summary>
-        [Description("the auth password for the socks5 proxy")]
-        [DefaultValue(null)]
-        [Category("Proxy")]
         public string ProxyPassword
         {
             get { return this[Options.PROXY_PW] as string; }
@@ -765,8 +644,6 @@ namespace jabber.connection
         /// Gets or sets the ID attribute from the
         /// stream:stream element sent by the XMPP server.
         /// </summary>
-        [Browsable(false)]
-        [DefaultValue(null)]
         public string StreamID
         {
             get { return m_streamID; }
@@ -776,7 +653,6 @@ namespace jabber.connection
         /// <summary>
         /// Retrieves the outbound document.
         /// </summary>
-        [Browsable(false)]
         public XmlDocument Document
         {
             get { return m_doc; }
@@ -786,7 +662,6 @@ namespace jabber.connection
         /// Gets or sets the current state of the connection.
         /// Lock on StateLock before accessing.
         /// </summary>
-        [Browsable(false)]
         protected virtual BaseState State
         {
             get { return m_state; }
@@ -798,7 +673,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets the lock for the state information.
         /// </summary>
-        [Browsable(false)]
         protected object StateLock
         {
             get { return m_stateLock; }
@@ -807,8 +681,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets or sets the state to authenticated.  Locks on StateLock
         /// </summary>
-        [Browsable(false)]
-        [DefaultValue(false)]
         public virtual bool IsAuthenticated
         {
             get
@@ -834,10 +706,7 @@ namespace jabber.connection
                     Close();
                 if (value && (OnAuthenticate != null))
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnAuthenticate, new object[] { this });
-                    else
-                        OnAuthenticate(this);
+                    OnAuthenticate(this);
                 }
                 this[Options.CURRENT_KEEP_ALIVE] = this[Options.KEEP_ALIVE];
             }
@@ -846,7 +715,6 @@ namespace jabber.connection
         /// <summary>
         /// Returns the namespace for this connection.
         /// </summary>
-        [Browsable(false)]
         protected abstract string NS
         {
             get;
@@ -855,8 +723,6 @@ namespace jabber.connection
         /// <summary>
         /// Determines whether or not SASL is required for connecting to the XMPP server.
         /// </summary>
-        [Description("Determines if SASL is required for connecting to the XMPP server.")]
-        [DefaultValue(false)]
         public bool RequiresSASL
         {
             get { return (bool)this[Options.REQUIRE_SASL]; }
@@ -866,8 +732,6 @@ namespace jabber.connection
         /// <summary>
         /// Gets the version number of the XMPP server.
         /// </summary>
-        [Description("Gets the version number of the XMPP server.")]
-        [DefaultValue(null)]
         public string ServerVersion
         {
             get { return m_serverVersion; }
@@ -996,49 +860,6 @@ namespace jabber.connection
         }
 
         /// <summary>
-        /// Invokes the given method on the Invoker, and does some exception handling.
-        /// </summary>
-        /// <param name="method">Method to call on the invoker thread.</param>
-        /// <param name="args">Arguments to pass to the method.</param>
-        protected void CheckedInvoke(MulticastDelegate method, object[] args)
-        {
-            try
-            {
-                Debug.Assert(m_invoker != null, "Check for this.InvokeControl == null before calling CheckedInvoke");
-                Debug.Assert(m_invoker.InvokeRequired, "Check for InvokeRequired before calling CheckedInvoke");
-
-                m_invoker.BeginInvoke(method, args);
-            }
-            catch (System.Reflection.TargetInvocationException e)
-            {
-                Debug.WriteLine("Exception passed along by XmppStream: " + e.ToString());
-                throw e.InnerException;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine("Exception in XmppStream: " + e.ToString());
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Determines whether or not a callback needs to be on the GUI thread.
-        /// </summary>
-        /// <returns>
-        /// True if the invoke control is set and the current thread
-        /// is not the GUI thread.
-        /// </returns>
-        protected bool InvokeRequired
-        {
-            get
-            {
-                if (m_invoker == null)
-                    return false;
-                return m_invoker.InvokeRequired;
-            }
-        }
-
-        /// <summary>
         /// Informs the client that the first tag of the XML document has been received.
         /// </summary>
         /// <param name="sender">Caller of this function.</param>
@@ -1076,10 +897,7 @@ namespace jabber.connection
                 }
                 if (OnStreamHeader != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnStreamHeader, new object[] { this, elem });
-                    else
-                        OnStreamHeader(this, elem);
+                    OnStreamHeader(this, elem);
                 }
                 CheckAll(elem);
 
@@ -1235,10 +1053,7 @@ namespace jabber.connection
 
                 if (OnStreamError != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnStreamError, new object[] { this, tag });
-                    else
-                        OnStreamError(this, tag);
+                    OnStreamError(this, tag);
                 }
                 return;
             }
@@ -1348,10 +1163,7 @@ namespace jabber.connection
             {
                 if (OnProtocol != null)
                 {
-                    if (InvokeRequired)
-                        CheckedInvoke(OnProtocol, new object[] { this, tag });
-                    else
-                        OnProtocol(this, tag);
+                    OnProtocol(this, tag);
                 }
             }
             CheckAll(tag);
@@ -1443,10 +1255,7 @@ namespace jabber.connection
 
             if (OnError != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnError, new object[] { this, e });
-                else
-                    OnError(this, e);
+                OnError(this, e);
             }
 
             if ((State != ClosingState.Instance) && (State == ClosedState.Instance))
@@ -1543,10 +1352,7 @@ namespace jabber.connection
                     XmlNode n = elem.SelectSingleNode(m_xpath, sender.m_ns);
                     if (n != null)
                     {
-                        if (sender.InvokeRequired)
-                            sender.CheckedInvoke(m_cb, new object[] { sender, elem });
-                        else
-                            m_cb(sender, elem);
+                        m_cb(sender, elem);
                     }
                 }
                 catch (Exception e)
@@ -1569,10 +1375,7 @@ namespace jabber.connection
 
             if (OnConnect != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnConnect, new Object[] { this, m_stanzas });
-                else
-                    OnConnect(this, m_stanzas);
+                OnConnect(this, m_stanzas);
             }
 
             SendNewStreamHeader();
@@ -1589,14 +1392,7 @@ namespace jabber.connection
 
             if (OnConnect != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnConnect, new object[] { this, m_stanzas });
-                else
-                {
-                    // Um.  This cast might not be right, but I don't want to break backward compatibility
-                    // if I don't have to by changing the delegate interface.
-                    OnConnect(this, m_stanzas);
-                }
+                OnConnect(this, m_stanzas);
             }
         }
 
@@ -1604,10 +1400,7 @@ namespace jabber.connection
         {
             if (OnReadText != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnReadText, new object[] { this, ENC.GetString(buf, offset, count) });
-                else
-                    OnReadText(this, ENC.GetString(buf, offset, count));
+                OnReadText(this, ENC.GetString(buf, offset, count));
             }
         }
 
@@ -1615,10 +1408,7 @@ namespace jabber.connection
         {
             if (OnWriteText != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnWriteText, new object[] { this, ENC.GetString(buf, offset, count) });
-                else
-                    OnWriteText(this, ENC.GetString(buf, offset, count));
+                OnWriteText(this, ENC.GetString(buf, offset, count));
             }
         }
 
@@ -1649,10 +1439,7 @@ namespace jabber.connection
 
             if (OnError != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnError, new object[] { this, ex });
-                else
-                    OnError(this, ex);
+                OnError(this, ex);
             }
 
             // TODO: Figure out what the "good" errors are, and try to
@@ -1673,10 +1460,7 @@ namespace jabber.connection
 
             if (OnDisconnect != null)
             {
-                if (InvokeRequired)
-                    CheckedInvoke(OnDisconnect, new object[] { this });
-                else
-                    OnDisconnect(this);
+                OnDisconnect(this);
             }
 
             TryReconnect();
@@ -1708,20 +1492,7 @@ namespace jabber.connection
         {
             // The OnElement logic stays outside the listener, so that it can be
             // more easily overriden by subclasses.
-                OnElement(m_stanzas, elem);
-        }
-
-        private bool ShowCertificatePrompt(object sender,
-            System.Security.Cryptography.X509Certificates.X509Certificate certificate,
-            System.Security.Cryptography.X509Certificates.X509Chain chain,
-            System.Net.Security.SslPolicyErrors sslPolicyErrors)
-        {
-#if !__MonoCS__
-            CertificatePrompt cp = new CertificatePrompt((X509Certificate2)certificate, chain, sslPolicyErrors);
-            return (cp.ShowDialog() == System.Windows.Forms.DialogResult.OK);
-#else
-            return false;
-#endif
+            OnElement(m_stanzas, elem);
         }
 
         bool IStanzaEventListener.OnInvalidCertificate(bedrock.net.BaseSocket sock,
@@ -1731,23 +1502,9 @@ namespace jabber.connection
         {
             if (OnInvalidCertificate != null)
             {
-                if ((m_invoker == null) || (!m_invoker.InvokeRequired))
-                    return OnInvalidCertificate(sock, certificate, chain, sslPolicyErrors);
-                try
-                {
-                    // Note: can't use CheckedInvoke here, since we need the return value.  We'll wait for the response.
-                    return (bool)m_invoker.Invoke(OnInvalidCertificate, new object[] { sock, certificate, chain, sslPolicyErrors });
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine("Exception passed along by XmppStream: " + e.ToString());
-                    return false;
-                }
+                return OnInvalidCertificate(sock, certificate, chain, sslPolicyErrors);
             }
-            if ((m_invoker == null) || (!m_invoker.InvokeRequired))
-                return ShowCertificatePrompt(sock, certificate, chain, sslPolicyErrors);
-
-            return (bool)m_invoker.Invoke(new System.Net.Security.RemoteCertificateValidationCallback(ShowCertificatePrompt), new object[]{ sock, certificate, chain, sslPolicyErrors });
+            throw new Exception("Invalid certificate; no event handler set.");
         }
 
         #endregion

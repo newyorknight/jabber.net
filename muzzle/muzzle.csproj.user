@@ -29,12 +29,13 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <RemoteDebugMachine>
     </RemoteDebugMachine>
-    <StartAction>Program</StartAction>
+    <StartAction>Project</StartAction>
     <StartArguments>
     </StartArguments>
     <StartPage>
     </StartPage>
-    <StartProgram>C:\src\jabber-net\xdataTest\bin\Debug\xdataTest.exe</StartProgram>
+    <StartProgram>
+    </StartProgram>
     <StartURL>
     </StartURL>
     <StartWorkingDirectory>

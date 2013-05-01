@@ -1,12 +1,12 @@
-namespace bedrock.util
+using System;
+using System.Collections;
+using System.Diagnostics;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 
+namespace bedrock.util
 {
-    using System;
-    using System.Collections;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Text;
-    using System.Text.RegularExpressions;
 
     /// <summary>
     /// GetOpt should be subclassed to create a class that handles
