@@ -1,15 +1,15 @@
 using System;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber.connection;
-using jabber.connection.sasl;
-using jabber.protocol.stream;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Connection.SASL;
+using Kixeye.Jabber.Protocol.Stream;
 
 using NUnit.Framework;
 using System.Xml;
 
-namespace test.jabber.connection.sasl
+namespace test.kixeye.jabber.connection.sasl
 {
     [TestFixture]
     public class MD5ProcessorTest

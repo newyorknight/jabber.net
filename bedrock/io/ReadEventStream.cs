@@ -1,9 +1,9 @@
 using System;
 
 using System.IO;
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.io
+namespace Kixeye.Bedrock.IO
 {
     /// <summary>
     /// Wrap a stream, so that OnRead events can be fired.

@@ -2,9 +2,9 @@ using System;
 
 using System.Threading;
 using NUnit.Framework;
-using bedrock.net;
-using bedrock.util;
-namespace test.bedrock.net
+using Kixeye.Jabber.Net;
+using Kixeye.Bedrock.Util;
+namespace test.kixeye.jabber.net
 {
     /// <summary>
     ///    Summary description for AsyncSocketTest.

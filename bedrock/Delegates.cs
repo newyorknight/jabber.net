@@ -1,6 +1,6 @@
 using System;
 
-namespace bedrock
+namespace Kixeye.Bedrock
 {
     /// <summary>
     /// Delegate for memebers that just have a sender

@@ -7,12 +7,12 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-using bedrock.collections;
-using bedrock.util;
-using jabber;
-using jabber.client;
-using jabber.protocol.client;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Collections;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
 
 namespace muzzle
 {
@@ -252,8 +252,8 @@ namespace muzzle
                 m_roster = value;
                 if (m_roster != null)
                 {
-                    m_roster.OnRosterBegin += new bedrock.ObjectHandler(m_roster_OnRosterBegin);
-                    m_roster.OnRosterEnd += new bedrock.ObjectHandler(m_roster_OnRosterEnd);
+                    m_roster.OnRosterBegin += new Kixeye.Bedrock.ObjectHandler(m_roster_OnRosterBegin);
+                    m_roster.OnRosterEnd += new Kixeye.Bedrock.ObjectHandler(m_roster_OnRosterEnd);
                     m_roster.OnRosterItem += new RosterItemHandler(m_roster_OnRosterItem);
                 }
             }
@@ -295,7 +295,7 @@ namespace muzzle
                     return;
                 m_client = value;
                 if (m_client != null)
-                    m_client.OnDisconnect += new bedrock.ObjectHandler(m_client_OnDisconnect);
+                    m_client.OnDisconnect += new Kixeye.Bedrock.ObjectHandler(m_client_OnDisconnect);
             }
         }
 
@@ -418,7 +418,7 @@ namespace muzzle
             return gn;
         }
 
-        private void m_roster_OnRosterItem(object sender, jabber.protocol.iq.Item ri)
+        private void m_roster_OnRosterItem(object sender, Kixeye.Jabber.Protocol.IQ.Item ri)
         {
             bool remove = (ri.Subscription == Subscription.remove);
 
@@ -510,13 +510,13 @@ namespace muzzle
         /// </summary>
         public class GroupNode : TreeNode
         {
-            private jabber.protocol.iq.Group m_group;
+            private Kixeye.Jabber.Protocol.IQ.Group m_group;
 
             /// <summary>
             /// Create a GroupNode
             /// </summary>
             /// <param name="rg"></param>
-            public GroupNode(jabber.protocol.iq.Group rg) : base(rg.GroupName, COLLAPSED, COLLAPSED)
+            public GroupNode(Kixeye.Jabber.Protocol.IQ.Group rg) : base(rg.GroupName, COLLAPSED, COLLAPSED)
             {
                 m_group = rg;
             }
@@ -561,7 +561,7 @@ namespace muzzle
         /// </summary>
         public class ItemNode : TreeNode
         {
-            private jabber.protocol.iq.Item m_item;
+            private Kixeye.Jabber.Protocol.IQ.Item m_item;
             private string m_status = null;
             private string m_nick = null;
 
@@ -569,7 +569,7 @@ namespace muzzle
             /// Create an ItemNode
             /// </summary>
             /// <param name="ri">The roster item to create from</param>
-            public ItemNode(jabber.protocol.iq.Item ri)
+            public ItemNode(Kixeye.Jabber.Protocol.IQ.Item ri)
             {
                 m_item = ri;
                 m_nick = ri.Nickname;

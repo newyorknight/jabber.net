@@ -7,12 +7,12 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Xml;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber.protocol;
-using jabber.protocol.x;
-using jabber.protocol.client;
-using Msg = jabber.protocol.client.Message;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.X;
+using Kixeye.Jabber.Protocol.Client;
+using Msg = Kixeye.Jabber.Protocol.Client.Message;
 using System.Diagnostics;
 
 namespace muzzle
@@ -55,7 +55,7 @@ namespace muzzle
         /// Create an x:data form from the given message stanza.
         /// </summary>
         /// <param name="parent">Original stanza</param>
-        public XDataForm(jabber.protocol.client.Message parent) : this(FindData(parent) as jabber.protocol.x.Data)
+        public XDataForm(Kixeye.Jabber.Protocol.Client.Message parent) : this(FindData(parent) as Kixeye.Jabber.Protocol.X.Data)
         {
             m_stanza = (Packet) parent.CloneNode(true);
             Data d = FindData(m_stanza);
@@ -68,7 +68,7 @@ namespace muzzle
         /// Create an x:data form from the given iq stanza.
         /// </summary>
         /// <param name="parent">Original stanza</param>
-        public XDataForm(jabber.protocol.client.IQ parent) : this(FindData(parent))
+        public XDataForm(Kixeye.Jabber.Protocol.Client.IQ parent) : this(FindData(parent))
         {
             m_stanza = (Packet) parent.CloneNode(true);
             Data d = FindData(m_stanza);
@@ -76,7 +76,7 @@ namespace muzzle
             m_parent.RemoveChild(d);
         }
 
-        private static jabber.protocol.x.Data FindData(Element el)
+        private static Kixeye.Jabber.Protocol.X.Data FindData(Element el)
         {
             if (el is Data)
                 return (Data)el;
@@ -93,7 +93,7 @@ namespace muzzle
         /// Create an x:data form from the given XML form description
         /// </summary>
         /// <param name="x">x:data form to render</param>
-        public XDataForm(jabber.protocol.x.Data x) : this()
+        public XDataForm(Kixeye.Jabber.Protocol.X.Data x) : this()
         {
             if (x == null)
                 throw new ArgumentException("x:data form must not be null", "x");
@@ -653,7 +653,7 @@ namespace muzzle
 
                 try
                 {
-                    jabber.JID j = new jabber.JID(jtxt.Text);
+                    Kixeye.Jabber.JID j = new Kixeye.Jabber.JID(jtxt.Text);
                 }
                 catch
                 {

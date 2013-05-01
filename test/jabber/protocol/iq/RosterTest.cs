@@ -3,12 +3,12 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber;
-using jabber.protocol;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.IQ;
 
-namespace test.jabber.protocol.iq
+namespace test.kixeye.jabber.protocol.iq
 {
     /// <summary>
     /// Summary description for RosterTest.
@@ -33,9 +33,9 @@ namespace test.jabber.protocol.iq
             RosterIQ riq = new RosterIQ(doc);
             Roster r = riq.Instruction;
             Item i = r.AddItem();
-            i.JID = new JID("hildjj@jabber.com");
+            i.JID = new JID("hildjj@kixeye.jabber.com");
             Assert.AreEqual("<iq id=\""+riq.ID+"\" type=\"get\"><query xmlns=\"jabber:iq:roster\">" +
-                "<item jid=\"hildjj@jabber.com\" /></query></iq>",
+                "<item jid=\"hildjj@kixeye.jabber.com\" /></query></iq>",
                 riq.ToString());
         }
         [Test] public void Test_GetItems()
@@ -43,33 +43,33 @@ namespace test.jabber.protocol.iq
             RosterIQ riq = new RosterIQ(doc);
             Roster r = riq.Instruction;
             Item i = r.AddItem();
-            i.JID = new JID("hildjj@jabber.com");
+            i.JID = new JID("hildjj@kixeye.jabber.com");
             i = r.AddItem();
             i.Subscription = Subscription.from;
-            i.JID = new JID("hildjj@jabber.org");
+            i.JID = new JID("hildjj@kixeye.jabber.org");
             i.Subscription = Subscription.both;
             Item[] items = r.GetItems();
             Assert.AreEqual(items.Length, 2);
-            Assert.AreEqual(items[0].JID, "hildjj@jabber.com");
-            Assert.AreEqual(items[1].JID, "hildjj@jabber.org");
+            Assert.AreEqual(items[0].JID, "hildjj@kixeye.jabber.com");
+            Assert.AreEqual(items[1].JID, "hildjj@kixeye.jabber.org");
         }
         [Test] public void Test_Groups()
         {
             RosterIQ riq = new RosterIQ(doc);
             Roster r = riq.Instruction;
             Item i = r.AddItem();
-            i.JID = new JID("hildjj@jabber.com");
+            i.JID = new JID("hildjj@kixeye.jabber.com");
             Group g = i.AddGroup("foo");
             Assert.AreEqual("<iq id=\""+riq.ID+"\" type=\"get\"><query xmlns=\"jabber:iq:roster\">" +
-                "<item jid=\"hildjj@jabber.com\"><group>foo</group></item></query></iq>",
+                "<item jid=\"hildjj@kixeye.jabber.com\"><group>foo</group></item></query></iq>",
                 riq.ToString());
             g = i.AddGroup("foo");
             Assert.AreEqual("<iq id=\""+riq.ID+"\" type=\"get\"><query xmlns=\"jabber:iq:roster\">" +
-                "<item jid=\"hildjj@jabber.com\"><group>foo</group></item></query></iq>",
+                "<item jid=\"hildjj@kixeye.jabber.com\"><group>foo</group></item></query></iq>",
                 riq.ToString());
             g = i.AddGroup("bar");
             Assert.AreEqual("<iq id=\""+riq.ID+"\" type=\"get\"><query xmlns=\"jabber:iq:roster\">" +
-                "<item jid=\"hildjj@jabber.com\"><group>foo</group><group>bar</group></item></query></iq>",
+                "<item jid=\"hildjj@kixeye.jabber.com\"><group>foo</group><group>bar</group></item></query></iq>",
                 riq.ToString());
             Assert.AreEqual(2, i.GetGroups().Length);
             Assert.AreEqual("foo", i.GetGroup("foo").GroupName);

@@ -1,8 +1,8 @@
 using System;
 
 using System.Collections;
-using bedrock.util;
-namespace bedrock.collections
+using Kixeye.Bedrock.Util;
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// A node in a Graph, such as a Tree

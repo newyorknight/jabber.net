@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
 namespace muzzle
 {
@@ -39,7 +39,7 @@ namespace muzzle
         public XmppDebugger()
         {
             InitializeComponent();
-            this.OnStreamChanged += new bedrock.ObjectHandler(XmppDebugger_OnStreamChanged);
+            this.OnStreamChanged += new Kixeye.Bedrock.ObjectHandler(XmppDebugger_OnStreamChanged);
         }
 
         /// <summary>
@@ -141,10 +141,10 @@ namespace muzzle
             if (m_stream == null)
                 return;
 
-            m_stream.OnConnect += new jabber.connection.StanzaStreamHandler(m_stream_OnConnect);
-            m_stream.OnReadText += new bedrock.TextHandler(m_stream_OnReadText);
-            m_stream.OnWriteText += new bedrock.TextHandler(m_stream_OnWriteText);
-            m_stream.OnError += new bedrock.ExceptionHandler(m_stream_OnError);
+            m_stream.OnConnect += new Kixeye.Jabber.Connection.StanzaStreamHandler(m_stream_OnConnect);
+            m_stream.OnReadText += new Kixeye.Bedrock.TextHandler(m_stream_OnReadText);
+            m_stream.OnWriteText += new Kixeye.Bedrock.TextHandler(m_stream_OnWriteText);
+            m_stream.OnError += new Kixeye.Bedrock.ExceptionHandler(m_stream_OnError);
         }
 
         private void Write(Color color, string tag, string text)
@@ -167,7 +167,7 @@ namespace muzzle
             WriteError(ex.ToString());
         }
 
-        private void m_stream_OnConnect(object sender, jabber.connection.StanzaStream stream)
+        private void m_stream_OnConnect(object sender, Kixeye.Jabber.Connection.StanzaStream stream)
         {
             // I think this is right.  Double check.
             rtDebug.Clear();

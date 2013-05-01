@@ -104,11 +104,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\jabber.net.csproj">
-      <Name>jabber.net</Name>
-      <Project>{6CAE854A-F202-4D2B-B10E-E8D8E81E5EF5}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
@@ -143,6 +138,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\bedrock\Bedrock.csproj">
+      <Project>{efa063e6-9301-44ce-b825-45057e57b6b4}</Project>
+      <Name>Bedrock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Core.csproj">
+      <Project>{95e8f913-6355-4e1f-b203-e9f37f771420}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

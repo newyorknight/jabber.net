@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95E8F913-6355-4E1F-B203-E9F37F771420}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kixeye.Jabber</RootNamespace>
+    <AssemblyName>Jabber.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>jabbernet.key</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Org.Mentalis.Security">
+      <HintPath>..\lib20\Org.Mentalis.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zlib.net">
+      <HintPath>..\lib20\zlib.net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\BookmarkManager.cs" />
+    <Compile Include="Client\JabberClient.cs" />
+    <Compile Include="Client\PresenceManager.cs" />
+    <Compile Include="Client\RosterManager.cs" />
+    <Compile Include="Connection\BindingStanzaStream.cs" />
+    <Compile Include="Connection\CapsManager.cs" />
+    <Compile Include="Connection\ConferenceManager.cs" />
+    <Compile Include="Connection\DiscoManager.cs" />
+    <Compile Include="Connection\FileMap.cs" />
+    <Compile Include="Connection\HttpStanzaStream.cs" />
+    <Compile Include="Connection\HttpUploader.cs" />
+    <Compile Include="Connection\IQTracker.cs" />
+    <Compile Include="Connection\PollingStanzaStream.cs" />
+    <Compile Include="Connection\PubSubManager.cs" />
+    <Compile Include="Connection\SASL\ExternalProcessor.cs" />
+    <Compile Include="Connection\SASL\KerbProcessor.cs" />
+    <Compile Include="Connection\SASL\MD5Processor.cs" />
+    <Compile Include="Connection\SASL\PlainProcessor.cs" />
+    <Compile Include="Connection\SASL\SASLProcessor.cs" />
+    <Compile Include="Connection\SocketStanzaStream.cs" />
+    <Compile Include="Connection\StanzaStream.cs" />
+    <Compile Include="Connection\States.cs" />
+    <Compile Include="Connection\StreamComponent.cs" />
+    <Compile Include="Connection\XmppStream.cs" />
+    <Compile Include="JID.cs" />
+    <Compile Include="Net\Address.cs" />
+    <Compile Include="Net\AsyncSocket.cs" />
+    <Compile Include="Net\BaseSocket.cs" />
+    <Compile Include="Net\CertUtil.cs" />
+    <Compile Include="Net\Exceptions.cs" />
+    <Compile Include="Net\HttpSocket.cs" />
+    <Compile Include="Net\IHttpSocket.cs" />
+    <Compile Include="Net\ProxySocket.cs" />
+    <Compile Include="Net\ShttpProxy.cs" />
+    <Compile Include="Net\SocketEventListener.cs" />
+    <Compile Include="Net\SocketWatcher.cs" />
+    <Compile Include="Net\Socks4Proxy.cs" />
+    <Compile Include="Net\Socks5Proxy.cs" />
+    <Compile Include="Net\XEP124Socket.cs" />
+    <Compile Include="Net\XEP25Socket.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\Accept\Factory.cs" />
+    <Compile Include="Protocol\Accept\Handshake.cs" />
+    <Compile Include="Protocol\Accept\Log.cs" />
+    <Compile Include="Protocol\Accept\Route.cs" />
+    <Compile Include="Protocol\Accept\Xdb.cs" />
+    <Compile Include="Protocol\AsynchElementStream.cs" />
+    <Compile Include="Protocol\Client\Error.cs" />
+    <Compile Include="Protocol\Client\Factory.cs" />
+    <Compile Include="Protocol\Client\IQ.cs" />
+    <Compile Include="Protocol\Client\Message.cs" />
+    <Compile Include="Protocol\Client\Presence.cs" />
+    <Compile Include="Protocol\Client\ProtocolException.cs" />
+    <Compile Include="Protocol\Element.cs" />
+    <Compile Include="Protocol\ElementFactory.cs" />
+    <Compile Include="Protocol\ElementList.cs" />
+    <Compile Include="Protocol\ElementStream.cs" />
+    <Compile Include="Protocol\EnumParser.cs" />
+    <Compile Include="Protocol\IQ\Agents.cs" />
+    <Compile Include="Protocol\IQ\Auth.cs" />
+    <Compile Include="Protocol\IQ\Bookmarks.cs" />
+    <Compile Include="Protocol\IQ\Browse.cs" />
+    <Compile Include="Protocol\IQ\Disco.cs" />
+    <Compile Include="Protocol\IQ\Factory.cs" />
+    <Compile Include="Protocol\IQ\GeoLoc.cs" />
+    <Compile Include="Protocol\IQ\Last.cs" />
+    <Compile Include="Protocol\IQ\MUC.cs" />
+    <Compile Include="Protocol\IQ\OOB.cs" />
+    <Compile Include="Protocol\IQ\Private.cs" />
+    <Compile Include="Protocol\IQ\PubSub.cs" />
+    <Compile Include="Protocol\IQ\PubSubErrors.cs" />
+    <Compile Include="Protocol\IQ\PubSubEvent.cs" />
+    <Compile Include="Protocol\IQ\PubSubOwner.cs" />
+    <Compile Include="Protocol\IQ\Register.cs" />
+    <Compile Include="Protocol\IQ\Roster.cs" />
+    <Compile Include="Protocol\IQ\Time.cs" />
+    <Compile Include="Protocol\IQ\VCard.cs" />
+    <Compile Include="Protocol\IQ\Version.cs" />
+    <Compile Include="Protocol\NS.cs" />
+    <Compile Include="Protocol\Packet.cs" />
+    <Compile Include="Protocol\Stream\Bind.cs" />
+    <Compile Include="Protocol\Stream\Compression.cs" />
+    <Compile Include="Protocol\Stream\Error.cs" />
+    <Compile Include="Protocol\Stream\Factory.cs" />
+    <Compile Include="Protocol\Stream\Features.cs" />
+    <Compile Include="Protocol\Stream\HttpBind.cs" />
+    <Compile Include="Protocol\Stream\SASL.cs" />
+    <Compile Include="Protocol\Stream\Session.cs" />
+    <Compile Include="Protocol\Stream\StartTLS.cs" />
+    <Compile Include="Protocol\Stream\Stream.cs" />
+    <Compile Include="Protocol\URI.cs" />
+    <Compile Include="Protocol\X\Caps.cs" />
+    <Compile Include="Protocol\X\Data.cs" />
+    <Compile Include="Protocol\X\Delay.cs" />
+    <Compile Include="Protocol\X\Event.cs" />
+    <Compile Include="Protocol\X\Factory.cs" />
+    <Compile Include="Server\JabberService.cs" />
+    <Compile Include="Server\XdbTracker.cs" />
+    <Compile Include="Xpnet\ContentToken.cs" />
+    <Compile Include="Xpnet\Encoding.cs" />
+    <Compile Include="Xpnet\Exceptions.cs" />
+    <Compile Include="Xpnet\Position.cs" />
+    <Compile Include="Xpnet\Token.cs" />
+    <Compile Include="Xpnet\UTF8Encoding.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jabbernet.key" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\bedrock\Bedrock.csproj">
+      <Project>{efa063e6-9301-44ce-b825-45057e57b6b4}</Project>
+      <Name>Bedrock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\netlib.Dns\netlib.Dns.csproj">
+      <Project>{40ac7a7c-d3e5-46df-b740-06bd9d2a00e1}</Project>
+      <Name>netlib.Dns</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

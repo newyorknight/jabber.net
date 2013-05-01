@@ -1,15 +1,15 @@
 using System;
 
 using NUnit.Framework;
-using bedrock.io;
-using bedrock.util;
+using Kixeye.Bedrock.IO;
+using Kixeye.Bedrock.Util;
 using System.Xml;
 
-using jabber.connection;
-using jabber.protocol;
-using jabber.protocol.iq;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.IQ;
 
-namespace test.jabber.connection
+namespace test.kixeye.jabber.connection
 {
     [TestFixture]
     public class FileMapTest
@@ -21,9 +21,9 @@ namespace test.jabber.connection
             get
             {
                 XmlDocument doc = new XmlDocument();
-                global::jabber.protocol.iq.DiscoInfo di = new global::jabber.protocol.iq.DiscoInfo(doc);
-                di.AddFeature(global::jabber.protocol.URI.DISCO_INFO);
-                di.AddFeature(global::jabber.protocol.URI.DISCO_ITEMS);
+                global::Kixeye.Jabber.Protocol.IQ.DiscoInfo di = new global::Kixeye.Jabber.Protocol.IQ.DiscoInfo(doc);
+                di.AddFeature(global::Kixeye.Jabber.Protocol.URI.DISCO_INFO);
+                di.AddFeature(global::Kixeye.Jabber.Protocol.URI.DISCO_ITEMS);
                 return di;
             }
         }
@@ -41,7 +41,7 @@ namespace test.jabber.connection
         public void TestCreate()
         {
             ElementFactory ef = new ElementFactory();
-            ef.AddType(new global::jabber.protocol.iq.Factory());
+            ef.AddType(new global::Kixeye.Jabber.Protocol.IQ.Factory());
 
             string g = new Guid().ToString();
             FileMap<DiscoInfo> fm = new FileMap<DiscoInfo>("test.xml", ef);

@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-namespace bedrock.util
+namespace Kixeye.Bedrock.Util
 {
     /// <summary>
     /// Make source code versions available at runtime.  Use the appropriate

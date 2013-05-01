@@ -2,10 +2,10 @@ using System;
 using System.IO;
 
 using NUnit.Framework;
-using bedrock.io;
-using bedrock.util;
+using Kixeye.Bedrock.IO;
+using Kixeye.Bedrock.Util;
 
-namespace test.bedrock.io
+namespace test.kixeye.bedrock.io
 {
     /// <summary>
     /// Test the ZlibStream class.

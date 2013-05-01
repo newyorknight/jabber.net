@@ -2,22 +2,22 @@ using System.Collections;
 using System.Reflection;
 using System.Xml;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber;
-using jabber.connection;
-using jabber.protocol;
-using jabber.protocol.client;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Client;
 
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace test.jabber.connection
+namespace test.kixeye.jabber.connection
 {
     [TestFixture]
     public class PubSubManagerTest
     {
-        private const string PUB_SUB_XMLNS = "http://jabber.org/protocol/pubsub";
+        private const string PUB_SUB_XMLNS = "http://kixeye.jabber.org/protocol/pubsub";
 
         private XmppStream stream;
 

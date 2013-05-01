@@ -1,9 +1,9 @@
 using System;
 
 using NUnit.Framework;
-using bedrock.collections;
-using bedrock.util;
-namespace test.bedrock.collections
+using Kixeye.Bedrock.Collections;
+using Kixeye.Bedrock.Util;
+namespace test.kixeye.bedrock.collections
 {
     /// <summary>
     ///    Summary description for TemplateTest.

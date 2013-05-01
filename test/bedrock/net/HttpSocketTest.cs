@@ -4,12 +4,12 @@ using System.Text;
 
 using NUnit.Framework;
 
-using bedrock.net;
-using bedrock.util;
+using Kixeye.Jabber.Net;
+using Kixeye.Bedrock.Util;
 using System.Threading;
 
 
-namespace test.bedrock.net
+namespace test.kixeye.jabber.net
 {
     [TestFixture]
     public class HttpSocketTest

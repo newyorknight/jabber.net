@@ -2,9 +2,9 @@
 
 using System;
 using NUnit.Framework;
-using stringprep;
-using stringprep.steps;
-using bedrock.util;
+using Kixeye.Bedrock.StringPrep;
+using Kixeye.Bedrock.StringPrep.Steps;
+using Kixeye.Bedrock.Util;
 
 namespace test.stringprep
 {

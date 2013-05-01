@@ -4,11 +4,11 @@ using System.IO;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
-using jabber.protocol.x;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.X;
 
-namespace test.jabber.protocol.x
+namespace test.kixeye.jabber.protocol.x
 {
     /// <summary>
     /// Summary description for DataTest.
@@ -67,7 +67,7 @@ namespace test.jabber.protocol.x
         [Test] public void Test_Parse()
         {
             AsynchElementStream es = new AsynchElementStream();
-            es.AddFactory(new global::jabber.protocol.x.Factory());
+            es.AddFactory(new global::Kixeye.Jabber.Protocol.X.Factory());
             es.OnElement += new ProtocolHandler(es_OnElement);
             es.Push(System.Text.Encoding.UTF8.GetBytes(tstring));
 
@@ -76,7 +76,7 @@ namespace test.jabber.protocol.x
 
         void es_OnElement(object sender, XmlElement n)
         {
-            Assert.IsInstanceOfType(typeof(global::jabber.protocol.x.Data), n);
+            Assert.IsInstanceOfType(typeof(global::Kixeye.Jabber.Protocol.X.Data), n);
             Data d = (Data)n;
             Assert.AreEqual(@"
         Welcome to the BloodBank-Service!  We thank you for registering with
@@ -106,10 +106,10 @@ namespace test.jabber.protocol.x
             doc.LoadXml(tstring);
 
             ElementFactory f = new ElementFactory();
-            f.AddType(new global::jabber.protocol.x.Factory());
+            f.AddType(new global::Kixeye.Jabber.Protocol.X.Factory());
 
             Element stream = Element.AddTypes(doc.DocumentElement, f);
-            Data d = stream.GetChildElement<global::jabber.protocol.x.Data>();
+            Data d = stream.GetChildElement<global::Kixeye.Jabber.Protocol.X.Data>();
             Assert.IsNotNull(d);
         }
     }

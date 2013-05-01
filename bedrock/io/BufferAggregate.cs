@@ -1,9 +1,9 @@
 using System.Collections;
 using System.IO;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.io
+namespace Kixeye.Bedrock.IO
 {
     /// <summary> Aggregate byte arrays together, so we can parse
     /// across IP packet boundaries

@@ -1,9 +1,9 @@
 using System;
 
 using System.Collections;
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.collections
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// Set operations.

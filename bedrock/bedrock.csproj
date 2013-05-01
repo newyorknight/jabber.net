@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFA063E6-9301-44CE-B825-45057E57B6B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kixeye.Bedrock</RootNamespace>
+    <AssemblyName>Jabber.Bedrock</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>jabbernet.key</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zlib.net">
+      <HintPath>..\lib20\zlib.net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\ByteStack.cs" />
+    <Compile Include="Collections\GraphNode.cs" />
+    <Compile Include="Collections\IndexedTrie.cs" />
+    <Compile Include="Collections\ISet.cs" />
+    <Compile Include="Collections\LinkedList.cs" />
+    <Compile Include="Collections\Set.cs" />
+    <Compile Include="Collections\SkipList.cs" />
+    <Compile Include="Collections\StringSet.cs" />
+    <Compile Include="Collections\Tree.cs" />
+    <Compile Include="Collections\Trie.cs" />
+    <Compile Include="Collections\TrieNode.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="IO\BufferAggregate.cs" />
+    <Compile Include="IO\ReadEventStream.cs" />
+    <Compile Include="IO\ZlibStream.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringPrep\Nameprep.cs" />
+    <Compile Include="StringPrep\Plain.cs" />
+    <Compile Include="StringPrep\Profile.cs" />
+    <Compile Include="StringPrep\Steps\BidiStep.cs" />
+    <Compile Include="StringPrep\Steps\MapStep.cs" />
+    <Compile Include="StringPrep\Steps\NFKCStep.cs" />
+    <Compile Include="StringPrep\Steps\ProfileStep.cs" />
+    <Compile Include="StringPrep\Steps\ProhibitStep.cs" />
+    <Compile Include="StringPrep\Steps\RFC3454.cs" />
+    <Compile Include="StringPrep\Unicode\Combining.cs" />
+    <Compile Include="StringPrep\Unicode\CombiningData.cs" />
+    <Compile Include="StringPrep\Unicode\Compose.cs" />
+    <Compile Include="StringPrep\Unicode\ComposeData.cs" />
+    <Compile Include="StringPrep\Unicode\Decompose.cs" />
+    <Compile Include="StringPrep\Unicode\DecomposeData.cs" />
+    <Compile Include="StringPrep\XmppNode.cs" />
+    <Compile Include="StringPrep\XmppResource.cs" />
+    <Compile Include="Util\ConfigFile.cs" />
+    <Compile Include="Util\GetOptBase.cs" />
+    <Compile Include="Util\Version.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jabbernet.key" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

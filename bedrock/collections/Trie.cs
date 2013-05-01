@@ -1,9 +1,9 @@
 using System;
 
 using System.Collections;
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.collections
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// The method signature used by <see cref="Trie.Traverse(TrieKeyWalker,object,TrieNode,ByteStack)"/> when it encounters a key.

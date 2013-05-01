@@ -7,8 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 
-using bedrock.util;
-using jabber.connection;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Connection;
 
 namespace muzzle
 {

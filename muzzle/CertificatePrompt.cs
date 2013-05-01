@@ -6,7 +6,7 @@
 namespace muzzle
 {
     using System;
-    using bedrock.util;
+    using Kixeye.Bedrock.Util;
 
 #if UI_OK
     using System.Security.Cryptography.X509Certificates;

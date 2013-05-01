@@ -5,7 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections;
 
-namespace bedrock.util
+namespace Kixeye.Bedrock.Util
 {
     /// <summary>
     /// XML configuration file manager.

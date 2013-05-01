@@ -2,10 +2,10 @@ using System;
 using System.IO;
 using System.Diagnostics;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 using ComponentAce.Compression.Libs.zlib;
 
-namespace bedrock.io
+namespace Kixeye.Bedrock.IO
 {
     /// <summary>
     /// Compression failed.

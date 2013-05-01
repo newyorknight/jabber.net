@@ -1,18 +1,18 @@
 using System.Xml;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber;
-using jabber.connection;
-using jabber.protocol;
-using jabber.protocol.client;
-using jabber.protocol.iq;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
 
 using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Interfaces;
 
-namespace test.jabber.connection
+namespace test.kixeye.jabber.connection
 {
     [TestFixture]
     public class DiscoManagerTest

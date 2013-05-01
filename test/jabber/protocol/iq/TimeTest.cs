@@ -3,13 +3,13 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber;
-using jabber.protocol;
-using jabber.protocol.client;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
 
-namespace test.jabber.protocol.iq
+namespace test.kixeye.jabber.protocol.iq
 {
     [TestFixture]
     public class TimeTest

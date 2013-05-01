@@ -3,13 +3,13 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber;
-using jabber.client;
-using jabber.protocol.client;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
 
-namespace test.jabber.client1 // TODO: Client1 due to a bug in NUnit.
+namespace test.kixeye.jabber.client1 // TODO: Client1 due to a bug in NUnit.
 {
     /// <summary>
     /// Summary description for PPDP.
@@ -22,7 +22,7 @@ namespace test.jabber.client1 // TODO: Client1 due to a bug in NUnit.
         [Test] public void Test_Create()
         {
             RosterManager rm = new RosterManager();
-            Assert.AreEqual("jabber.client.RosterManager", rm.GetType().FullName);
+            Assert.AreEqual("kixeye.jabber.client.RosterManager", rm.GetType().FullName);
         }
         public void TestAdd()
         {

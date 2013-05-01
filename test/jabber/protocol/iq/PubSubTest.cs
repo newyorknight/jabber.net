@@ -1,9 +1,9 @@
 using System.Xml;
-using bedrock.util;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol.IQ;
 using NUnit.Framework;
 
-namespace test.jabber.protocol.iq
+namespace test.kixeye.jabber.protocol.iq
 {
     [TestFixture]
     public class PubSubTest

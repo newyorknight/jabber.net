@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Threading;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
 namespace muzzle
 {

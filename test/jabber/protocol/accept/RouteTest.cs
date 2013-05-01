@@ -3,10 +3,10 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol.accept;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol.Accept;
 
-namespace test.jabber.protocol.accept
+namespace test.kixeye.jabber.protocol.accept
 {
     /// <summary>
     /// Summary description for IQTest.

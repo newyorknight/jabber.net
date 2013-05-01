@@ -3,17 +3,17 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber;
-using jabber.client;
-using jabber.protocol.client;
-using jabber.protocol.x;
-using jabber.connection;
-using jabber.protocol;
-using bedrock.collections;
-using jabber.protocol.iq;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.X;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Bedrock.Collections;
+using Kixeye.Jabber.Protocol.IQ;
 
-namespace test.jabber.client1 // TODO: Client1 due to a bug in NUnit.
+namespace test.kixeye.jabber.client1 // TODO: Client1 due to a bug in NUnit.
 {
     /// <summary>
     /// Summary description for PPDP.
@@ -32,7 +32,7 @@ namespace test.jabber.client1 // TODO: Client1 due to a bug in NUnit.
         public void Test_Create()
         {
             PresenceManager pp = new PresenceManager();
-            Assert.AreEqual("jabber.client.PresenceManager", pp.GetType().FullName);
+            Assert.AreEqual("kixeye.jabber.client.PresenceManager", pp.GetType().FullName);
         }
         [Test]
         public void TestAdd()

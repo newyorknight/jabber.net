@@ -1,8 +1,8 @@
 using System;
 
 using NUnit.Framework;
-using bedrock.util;
-namespace test.bedrock.util
+using Kixeye.Bedrock.Util;
+namespace test.kixeye.bedrock.util
 {
     /// <summary>
     ///    Summary description for AssemblyXMLTest.
@@ -116,13 +116,13 @@ namespace test.bedrock.util
         [Test] public void Test_GetAll()
         {
             SourceVersionCollection tv = SourceVersionAttribute.GetVersion();
-            Assert.IsTrue(tv["test.bedrock.util.VersionTest+vFoo"]   != null);
+            Assert.IsTrue(tv["test.kixeye.bedrock.util.VersionTest+vFoo"]   != null);
             Assert.IsTrue(tv[typeof(vBar).FullName]   != null);
             Assert.IsTrue(tv[typeof(vBaz)]   != null);
-            Assert.IsTrue(tv["test.bedrock.util.VersionTest+RCSVer"] != null);
-            Assert.IsTrue(tv["test.bedrock.util.VersionTest+VssVer"] != null);
-            Assert.IsTrue(tv["test.bedrock.util.VersionTest+SvnVer"] != null);
-            Assert.IsTrue(tv["test.bedrock.util.VersionTest+vBax"]   == null);
+            Assert.IsTrue(tv["test.kixeye.bedrock.util.VersionTest+RCSVer"] != null);
+            Assert.IsTrue(tv["test.kixeye.bedrock.util.VersionTest+VssVer"] != null);
+            Assert.IsTrue(tv["test.kixeye.bedrock.util.VersionTest+SvnVer"] != null);
+            Assert.IsTrue(tv["test.kixeye.bedrock.util.VersionTest+vBax"]   == null);
             foreach (string c in tv)
             {
                 //Console.WriteLine("<{0}>", c);

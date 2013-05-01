@@ -3,10 +3,10 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber;
-using jabber.client;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
 
 namespace muzzle
 {
@@ -47,7 +47,7 @@ namespace muzzle
         /// Messages without bodies will be ignored.
         /// </summary>
         /// <param name="msg"></param>
-        public void InsertMessage(jabber.protocol.client.Message msg)
+        public void InsertMessage(Kixeye.Jabber.Protocol.Client.Message msg)
         {
             string body = msg.Body;
             if (body == null)
@@ -66,7 +66,7 @@ namespace muzzle
             AppendMaybeScroll(m_sendColor, "Me:", text);
         }
 
-        private void m_cli_OnPresence(object sender, jabber.protocol.client.Presence pres)
+        private void m_cli_OnPresence(object sender, Kixeye.Jabber.Protocol.Client.Presence pres)
         {
             throw new Exception("The method or operation is not implemented.");
         }

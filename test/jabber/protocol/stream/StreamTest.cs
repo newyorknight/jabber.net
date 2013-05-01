@@ -4,12 +4,12 @@ using System.Xml;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
-using jabber.protocol.stream;
-using fact = jabber.protocol.stream.Factory;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Stream;
+using fact = Kixeye.Jabber.Protocol.Stream.Factory;
 
-namespace test.jabber.protocol.stream
+namespace test.kixeye.jabber.protocol.stream
 {
     /// <summary>
     /// Summary description for StreamTest.
@@ -31,7 +31,7 @@ namespace test.jabber.protocol.stream
             Error err = new Error(doc);
             err.Message = "foo";
             Assert.AreEqual("<stream:error " +
-                "xmlns:stream=\"http://etherx.jabber.org/streams\">foo</stream:error>", err.ToString());
+                "xmlns:stream=\"http://etherx.kixeye.jabber.org/streams\">foo</stream:error>", err.ToString());
             ElementFactory sf = new ElementFactory();
             sf.AddType(new fact());
             XmlQualifiedName qname = new XmlQualifiedName(err.LocalName, err.NamespaceURI);

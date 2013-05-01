@@ -1,9 +1,9 @@
 using System;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 using NUnit.Framework;
-using je = jabber.JIDFormatException;
-using jabber;
+using je = Kixeye.Jabber.JIDFormatException;
+using Kixeye.Jabber;
 
 namespace test.jabber
 {
@@ -15,14 +15,14 @@ namespace test.jabber
     {
         [Test] public void Test_Create()
         {
-            JID j = new JID("foo", "jabber.com", "there");
-            Assert.AreEqual("foo@jabber.com/there", j.ToString());
-            j = new JID(null, "jabber.com", null);
-            Assert.AreEqual("jabber.com", j.ToString());
-            j = new JID("foo", "jabber.com", null);
-            Assert.AreEqual("foo@jabber.com", j.ToString());
-            j = new JID(null, "jabber.com", "there");
-            Assert.AreEqual("jabber.com/there", j.ToString());
+            JID j = new JID("foo", "kixeye.jabber.com", "there");
+            Assert.AreEqual("foo@kixeye.jabber.com/there", j.ToString());
+            j = new JID(null, "kixeye.jabber.com", null);
+            Assert.AreEqual("kixeye.jabber.com", j.ToString());
+            j = new JID("foo", "kixeye.jabber.com", null);
+            Assert.AreEqual("foo@kixeye.jabber.com", j.ToString());
+            j = new JID(null, "kixeye.jabber.com", "there");
+            Assert.AreEqual("kixeye.jabber.com/there", j.ToString());
         }
         [Test] public void Test_Parse_1()
         {

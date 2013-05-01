@@ -3,11 +3,11 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
-using jabber.protocol.client;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Client;
 
-namespace test.jabber.protocol.client
+namespace test.kixeye.jabber.protocol.client
 {
     /// <summary>
     /// Summary description for MessageTest.
@@ -25,11 +25,11 @@ namespace test.jabber.protocol.client
         {
             Message msg = new Message(doc);
             msg.Html = "foo";
-            Assert.AreEqual("<message id=\""+msg.ID+"\"><html xmlns=\"http://jabber.org/protocol/xhtml-im\"><body xmlns=\"http://www.w3.org/1999/xhtml\">foo</body></html><body>foo</body></message>", msg.ToString());
+            Assert.AreEqual("<message id=\""+msg.ID+"\"><html xmlns=\"http://kixeye.jabber.org/protocol/xhtml-im\"><body xmlns=\"http://www.w3.org/1999/xhtml\">foo</body></html><body>foo</body></message>", msg.ToString());
             // TODO: deal with the namespace problem here
-            msg.Html = "f<a href=\"http://www.jabber.org\">o</a>o";
-            Assert.AreEqual("<message id=\""+msg.ID+"\"><html xmlns=\"http://jabber.org/protocol/xhtml-im\"><body xmlns=\"http://www.w3.org/1999/xhtml\">f<a href=\"http://www.jabber.org\">o</a>o</body></html><body>foo</body></message>", msg.ToString());
-            Assert.AreEqual("f<a href=\"http://www.jabber.org\">o</a>o", msg.Html);
+            msg.Html = "f<a href=\"http://www.kixeye.jabber.org\">o</a>o";
+            Assert.AreEqual("<message id=\""+msg.ID+"\"><html xmlns=\"http://kixeye.jabber.org/protocol/xhtml-im\"><body xmlns=\"http://www.w3.org/1999/xhtml\">f<a href=\"http://www.kixeye.jabber.org\">o</a>o</body></html><body>foo</body></message>", msg.ToString());
+            Assert.AreEqual("f<a href=\"http://www.kixeye.jabber.org\">o</a>o", msg.Html);
         }
         [Test] public void Test_NullBody()
         {

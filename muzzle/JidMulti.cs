@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
 namespace muzzle
 {
@@ -165,7 +165,7 @@ namespace muzzle
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                jabber.JID jid = new jabber.JID(txtEntry.Text);
+                Kixeye.Jabber.JID jid = new Kixeye.Jabber.JID(txtEntry.Text);
                 lstJID.Items.Add(jid);
                 txtEntry.Clear();
                 error.SetError(txtEntry, null);
@@ -182,7 +182,7 @@ namespace muzzle
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                jabber.JID jid = new jabber.JID(txtEntry.Text);
+                Kixeye.Jabber.JID jid = new Kixeye.Jabber.JID(txtEntry.Text);
                 int i = 0;
                 foreach (object o in lstJID.Items)
                 {

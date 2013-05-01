@@ -1,8 +1,8 @@
 using System;
 
 using System.Collections;
-using bedrock.util;
-namespace bedrock.collections
+using Kixeye.Bedrock.Util;
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// A doubly-linked list implementation, with a sentinal wrap-around

@@ -1,9 +1,9 @@
 using System;
 
 using System.Collections;
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.collections
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// The different ways a set can be implemented.
@@ -109,7 +109,7 @@ namespace bedrock.collections
         /// </summary>
         /// <param name="other">Second set to combine.</param>
         /// <returns>Combined set.</returns>
-        public bedrock.collections.ISet Union(bedrock.collections.ISet other)
+        public Kixeye.Bedrock.Collections.ISet Union(Kixeye.Bedrock.Collections.ISet other)
         {
             throw new NotImplementedException();
         }
@@ -122,7 +122,7 @@ namespace bedrock.collections
         /// Other set to intersect with.
         /// </param>
         /// <returns>Combined set.</returns>
-        public bedrock.collections.ISet Intersection(bedrock.collections.ISet other)
+        public Kixeye.Bedrock.Collections.ISet Intersection(Kixeye.Bedrock.Collections.ISet other)
         {
             throw new NotImplementedException();
         }

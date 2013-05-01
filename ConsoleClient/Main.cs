@@ -2,12 +2,12 @@ using System;
 using System.Threading;
 using System.Xml;
 
-using bedrock.util;
-using jabber;
-using jabber.client;
-using jabber.protocol.client;
-using jabber.protocol.iq;
-using jabber.connection;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
+using Kixeye.Jabber.Connection;
 
 namespace ConsoleClient
 {
@@ -52,10 +52,10 @@ namespace ConsoleClient
         public Class1(string[] args)
         {
             JabberClient jc = new JabberClient();
-            jc.OnReadText += new bedrock.TextHandler(jc_OnReadText);
-            jc.OnWriteText += new bedrock.TextHandler(jc_OnWriteText);
-            jc.OnError +=new bedrock.ExceptionHandler(jc_OnError);
-            jc.OnStreamError += new jabber.protocol.ProtocolHandler(jc_OnStreamError);
+            jc.OnReadText += new Kixeye.Bedrock.TextHandler(jc_OnReadText);
+            jc.OnWriteText += new Kixeye.Bedrock.TextHandler(jc_OnWriteText);
+            jc.OnError +=new Kixeye.Bedrock.ExceptionHandler(jc_OnError);
+            jc.OnStreamError += new Kixeye.Jabber.Protocol.ProtocolHandler(jc_OnStreamError);
 
             jc.AutoReconnect = 3f;
 
@@ -98,7 +98,7 @@ namespace ConsoleClient
             {
                 jc.AutoLogin = false;
                 jc.OnLoginRequired +=
-                    new bedrock.ObjectHandler(jc_OnLoginRequired);
+                    new Kixeye.Bedrock.ObjectHandler(jc_OnLoginRequired);
                 jc.OnRegisterInfo += new RegisterInfoHandler(this.jc_OnRegisterInfo);
                 jc.OnRegistered += new IQHandler(jc_OnRegistered);
             }

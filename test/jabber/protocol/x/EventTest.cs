@@ -3,11 +3,11 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
-using jabber.protocol.x;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.X;
 
-namespace test.jabber.protocol.x
+namespace test.kixeye.jabber.protocol.x
 {
     /// <summary>
     /// Summary description for AuthTest.

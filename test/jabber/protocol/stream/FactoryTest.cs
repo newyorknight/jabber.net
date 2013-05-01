@@ -2,11 +2,11 @@ using System;
 
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
-using fact = jabber.protocol.stream.Factory;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
+using fact = Kixeye.Jabber.Protocol.Stream.Factory;
 
-namespace test.jabber.protocol.stream
+namespace test.kixeye.jabber.protocol.stream
 {
     /// <summary>
     /// Summary description for StreamFactoryTest.

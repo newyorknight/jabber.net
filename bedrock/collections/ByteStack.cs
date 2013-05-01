@@ -1,7 +1,7 @@
 using System;
 
-using bedrock.util;
-namespace bedrock.collections
+using Kixeye.Bedrock.Util;
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// A type-safe stack for bytes, implemented as a growable

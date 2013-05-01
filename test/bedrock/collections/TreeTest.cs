@@ -2,10 +2,10 @@ using System;
 
 using System.Collections;
 using NUnit.Framework;
-using bedrock.collections;
-using bedrock.util;
+using Kixeye.Bedrock.Collections;
+using Kixeye.Bedrock.Util;
 
-namespace test.bedrock.collections
+namespace test.kixeye.bedrock.collections
 {
     /// <summary>
     /// Summary description for TreeTest.
@@ -31,7 +31,7 @@ namespace test.bedrock.collections
         [Test] public void Test_Type()
         {
             Tree t = new Tree();
-            Assert.AreEqual("bedrock.collections.Tree", t.GetType().FullName);
+            Assert.AreEqual("kixeye.bedrock.collections.Tree", t.GetType().FullName);
         }
         [Test] public void Test_Main()
         {

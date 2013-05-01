@@ -2,8 +2,8 @@ using System;
 
 using System.IO;
 using System.Collections;
-using bedrock.util;
-namespace bedrock.collections
+using Kixeye.Bedrock.Util;
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// A node in a Trie.  This class is public to support traversal via Trie.Traverse().

@@ -2,10 +2,10 @@ using System;
 
 using System.Collections;
 using NUnit.Framework;
-using bedrock.collections;
-using bedrock.util;
+using Kixeye.Bedrock.Collections;
+using Kixeye.Bedrock.Util;
 
-namespace test.bedrock.collections
+namespace test.kixeye.bedrock.collections
 {
     /// <summary>
     ///    Summary description for TemplateTest.
@@ -31,7 +31,7 @@ namespace test.bedrock.collections
         [Test] public void Test_Type()
         {
             Trie t = new Trie();
-            Assert.AreEqual("bedrock.collections.Trie", t.GetType().FullName);
+            Assert.AreEqual("kixeye.bedrock.collections.Trie", t.GetType().FullName);
         }
         [Test] public void Test_Main()
         {

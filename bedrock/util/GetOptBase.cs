@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace bedrock.util
+namespace Kixeye.Bedrock.Util
 {
 
     /// <summary>

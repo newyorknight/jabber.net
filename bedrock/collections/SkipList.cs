@@ -3,9 +3,9 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.collections
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// Summary description for SkipList.

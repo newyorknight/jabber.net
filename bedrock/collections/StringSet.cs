@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-namespace bedrock.collections
+namespace Kixeye.Bedrock.Collections
 {
     /// <summary>
     /// A set of strings, backed into a BitArray.  Any given string that is inserted

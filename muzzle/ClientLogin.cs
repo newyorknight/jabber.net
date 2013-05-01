@@ -6,9 +6,9 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Xml;
 
-using bedrock.util;
-using jabber.connection;
-using jabber.connection.sasl;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Connection.SASL;
 
 namespace muzzle
 {
@@ -109,7 +109,7 @@ namespace muzzle
         /// <param name="cli">The JabberClient instance to connect</param>
         /// <param name="propertyFile">The name of an XML file to store properties in.</param>
         /// <returns>True if the user clicked OK, false on cancel</returns>
-        public static bool Login(jabber.client.JabberClient cli, string propertyFile)
+        public static bool Login(Kixeye.Jabber.Client.JabberClient cli, string propertyFile)
         {
             return new ClientLogin(cli).Login(propertyFile);
         }
@@ -119,7 +119,7 @@ namespace muzzle
         /// connection.
         /// </summary>
         /// <param name="cli">The client connection to modify</param>
-        public ClientLogin(jabber.client.JabberClient cli) : this()
+        public ClientLogin(Kixeye.Jabber.Client.JabberClient cli) : this()
         {
             this.Xmpp = cli;
         }

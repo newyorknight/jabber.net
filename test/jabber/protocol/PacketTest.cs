@@ -3,10 +3,10 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
 
-namespace test.jabber.protocol
+namespace test.kixeye.jabber.protocol
 {
     /// <summary>
     /// Summary description for PacketTest.

@@ -4,11 +4,11 @@ using System.Text;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock;
-using bedrock.util;
-using jabber.protocol;
+using Kixeye.Bedrock;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol;
 
-namespace test.jabber.protocol
+namespace test.kixeye.jabber.protocol
 {
     /// <summary>
     /// Summary description for ElementListTest.

@@ -1,8 +1,8 @@
 using System;
 
 using NUnit.Framework;
-using bedrock.util;
-namespace test.bedrock.util
+using Kixeye.Bedrock.Util;
+namespace test.kixeye.bedrock.util
 {
     /// <summary>
     ///    Summary description for GetOptBaseTest.

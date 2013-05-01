@@ -1,11 +1,11 @@
 using System;
 
 using NUnit.Framework;
-using bedrock.collections;
-using bedrock.util;
+using Kixeye.Bedrock.Collections;
+using Kixeye.Bedrock.Util;
 using System.Collections;
 
-namespace test.bedrock.collections
+namespace test.kixeye.bedrock.collections
 {
     /// <summary>
     /// Summary description for SkipListTest.

@@ -3,10 +3,10 @@ using System;
 using System.Xml;
 using NUnit.Framework;
 
-using bedrock.util;
-using jabber.protocol.client;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber.Protocol.Client;
 
-namespace test.jabber.protocol.client
+namespace test.kixeye.jabber.protocol.client
 {
     /// <summary>
     /// Summary description for PresenceTest.

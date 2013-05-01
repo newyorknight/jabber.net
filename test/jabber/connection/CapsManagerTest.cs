@@ -1,20 +1,20 @@
 using System.Xml;
 
-using bedrock.util;
+using Kixeye.Bedrock.Util;
 
-using jabber;
-using jabber.client;
-using jabber.connection;
-using jabber.protocol;
-using jabber.protocol.client;
-using jabber.protocol.iq;
-using jabber.protocol.x;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Client;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol;
+using Kixeye.Jabber.Protocol.Client;
+using Kixeye.Jabber.Protocol.IQ;
+using Kixeye.Jabber.Protocol.X;
 
 using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Interfaces;
 
-namespace test.jabber.connection
+namespace test.kixeye.jabber.connection
 {
     [TestFixture]
     public class CapsManagerTest
@@ -29,7 +29,7 @@ namespace test.jabber.connection
         
         private const string TEST_ID = "TEST_ID";
         
-        private const string NODE = "http://jm.jabber.com/caps";
+        private const string NODE = "http://jm.kixeye.jabber.com/caps";
         private const int PRIORITY = 2;
         private const string STATUS = "Ready to Chat";
 
@@ -165,9 +165,9 @@ namespace test.jabber.connection
         {
             CapsManager cm = new CapsManager();
             cm.AddIdentity("client", "pc", null, "Exodus 0.9.1");
-            cm.AddFeature("http://jabber.org/protocol/muc");
-            cm.AddFeature("http://jabber.org/protocol/disco#info");
-            cm.AddFeature("http://jabber.org/protocol/disco#items");
+            cm.AddFeature("http://kixeye.jabber.org/protocol/muc");
+            cm.AddFeature("http://kixeye.jabber.org/protocol/disco#info");
+            cm.AddFeature("http://kixeye.jabber.org/protocol/disco#items");
             Assert.AreEqual("SrFo9ar2CCk2EnOH4q4QANeuxLQ=", cm.Ver);
         }
 
@@ -186,9 +186,9 @@ namespace test.jabber.connection
             XmlElement root = doc.DocumentElement;
 
             DiscoInfo info = new DiscoInfo(doc);
-            info.AddFeature("http://jabber.org/protocol/muc");
-            info.AddFeature("http://jabber.org/protocol/disco#info");
-            info.AddFeature("http://jabber.org/protocol/disco#items");
+            info.AddFeature("http://kixeye.jabber.org/protocol/muc");
+            info.AddFeature("http://kixeye.jabber.org/protocol/disco#info");
+            info.AddFeature("http://kixeye.jabber.org/protocol/disco#items");
             info.AddIdentity("client", "pc", "Psi 0.9.1", "en");
             info.AddIdentity("client", "pc", "\u03a8 0.9.1", "el");
             Data x = info.CreateExtension();

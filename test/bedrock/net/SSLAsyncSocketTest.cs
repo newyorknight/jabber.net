@@ -2,11 +2,11 @@ using System;
 
 using System.Threading;
 using NUnit.Framework;
-using bedrock.net;
-using bedrock.util;
+using Kixeye.Jabber.Net;
+using Kixeye.Bedrock.Util;
 using System.Security.Cryptography.X509Certificates;
 
-namespace test.bedrock.net
+namespace test.kixeye.jabber.net
 {
     /// <summary>
     ///  Not really async.

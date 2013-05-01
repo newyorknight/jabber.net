@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Xml;
 
-using bedrock.util;
-using jabber;
-using jabber.connection;
-using jabber.protocol.client;
+using Kixeye.Bedrock.Util;
+using Kixeye.Jabber;
+using Kixeye.Jabber.Connection;
+using Kixeye.Jabber.Protocol.Client;
 
 namespace muzzle
 {
@@ -24,7 +24,7 @@ namespace muzzle
         /// <summary>
         /// The XmppStream was changed.  Often at design time.  The object will be this StreamControl.
         /// </summary>
-        public event bedrock.ObjectHandler OnStreamChanged;
+        public event Kixeye.Bedrock.ObjectHandler OnStreamChanged;
 
         /// <summary>
         /// The JabberClient or JabberService to hook up to.
