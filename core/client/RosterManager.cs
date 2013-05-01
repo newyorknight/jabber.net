@@ -374,7 +374,7 @@ C: <iq from='juliet@example.com/balcony' type='set' id='delete_1'>
 
         #region IEnumerable Members
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             return m_items.Keys.GetEnumerator();
         }

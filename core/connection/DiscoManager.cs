@@ -894,7 +894,7 @@ namespace Kixeye.Jabber.Connection
         /// Gets all of the cached nodes.
         /// </summary>
         /// <returns>Tree enumerator to loop over.</returns>
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             return m_items.GetEnumerator();
         }

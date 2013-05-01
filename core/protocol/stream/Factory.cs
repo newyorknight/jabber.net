@@ -40,6 +40,6 @@ namespace Kixeye.Jabber.Protocol.Stream
 
             new QnameType("body",       URI.HTTP_BIND, typeof(Body)),
         };
-        QnameType[] IPacketTypes.Types { get { return s_qnt; } }
+        public QnameType[] Types { get { return s_qnt; } }
     }
 }

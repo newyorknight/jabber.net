@@ -266,7 +266,7 @@ namespace Kixeye.Jabber.Net
 
         #region ISocketEventListener Members
 
-        void ISocketEventListener.OnInit(BaseSocket newSock)
+        public void OnInit(BaseSocket newSock)
         {
             // This is the one listener event with a good socket, but it might not be the one that anyone expects.
             // The important thing is that if someone wants to set the TCP buffer sizes downstream, it 
@@ -274,12 +274,12 @@ namespace Kixeye.Jabber.Net
             m_listener.OnInit(newSock);
         }
 
-        ISocketEventListener ISocketEventListener.GetListener(BaseSocket newSock)
+        public ISocketEventListener GetListener(BaseSocket newSock)
         {
             throw new Exception("The method or operation is not implemented.");
         }
 
-        bool ISocketEventListener.OnAccept(BaseSocket newsocket)
+        public bool OnAccept(BaseSocket newsocket)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -328,7 +328,7 @@ namespace Kixeye.Jabber.Net
             m_sock.RequestRead();
         }
 
-        void ISocketEventListener.OnConnect(BaseSocket sock)
+        public void OnConnect(BaseSocket sock)
         {
             m_listener.OnConnect(null);
             lock (m_lock)
@@ -337,7 +337,7 @@ namespace Kixeye.Jabber.Net
             }
         }
 
-        void ISocketEventListener.OnClose(BaseSocket sock)
+        public void OnClose(BaseSocket sock)
         {
             m_sock = null;
             lock (m_lock)
@@ -346,7 +346,7 @@ namespace Kixeye.Jabber.Net
             }
         }
 
-        void ISocketEventListener.OnError(BaseSocket sock, Exception ex)
+        public void OnError(BaseSocket sock, Exception ex)
         {
             if (Interlocked.Increment(ref m_errorCount) > m_maxErrors)
             {
@@ -422,7 +422,7 @@ namespace Kixeye.Jabber.Net
             Debug.WriteLine("HTTP Socket " + m_name + " done");
         }
 
-        bool ISocketEventListener.OnRead(BaseSocket sock, byte[] buf, int offset, int length)
+        public bool OnRead(BaseSocket sock, byte[] buf, int offset, int length)
         {
             Debug.WriteLine("IN HTTP(" + m_name + "): " + ENC.GetString(buf, offset, length));
             int i = offset;
@@ -545,12 +545,12 @@ namespace Kixeye.Jabber.Net
             return false;
         }
 
-        void ISocketEventListener.OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
+        public void OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
         {
             m_listener.OnWrite(null, buf, offset, length);
         }
 
-        bool ISocketEventListener.OnInvalidCertificate(BaseSocket sock, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        public bool OnInvalidCertificate(BaseSocket sock, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
             // TODO: pass up the chain
             return m_listener.OnInvalidCertificate(null, certificate, chain, sslPolicyErrors);

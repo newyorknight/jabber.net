@@ -132,6 +132,6 @@ namespace Kixeye.Jabber.Protocol.IQ
             new QnameType("destroy", URI.MUC_OWNER, typeof(Kixeye.Jabber.Protocol.IQ.OwnerDestroy)),
         };
 
-        QnameType[] IPacketTypes.Types { get { return s_qnt; } }
+        public QnameType[] Types { get { return s_qnt; } }
     }
 }

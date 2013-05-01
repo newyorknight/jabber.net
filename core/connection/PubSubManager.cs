@@ -1096,7 +1096,7 @@ namespace Kixeye.Jabber.Connection
 
         #region IEnumerable Members
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             return m_items.GetEnumerator();
         }

@@ -26,6 +26,6 @@ namespace Kixeye.Jabber.Protocol.X
 
                     new QnameType("c",     URI.CAPS,      typeof(Kixeye.Jabber.Protocol.X.Caps)),
         };
-        QnameType[] IPacketTypes.Types { get { return s_qnt; } }
+        public QnameType[] Types { get { return s_qnt; } }
     }
 }

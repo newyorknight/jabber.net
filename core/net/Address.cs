@@ -238,14 +238,6 @@ namespace Kixeye.Jabber.Net
             }
         }
         /// <summary>
-        /// Not implemented yet.
-        /// </summary>
-        public string Service
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-        /// <summary>
         /// An IPEndPoint for making socket connections with.
         /// </summary>
         public IPEndPoint Endpoint

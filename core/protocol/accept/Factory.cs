@@ -22,6 +22,6 @@ namespace Kixeye.Jabber.Protocol.Accept
             new QnameType("xdb",       URI.CONNECT, typeof(Xdb)),
             new QnameType("log",       URI.CONNECT, typeof(Log))
         };
-        QnameType[] IPacketTypes.Types { get { return s_qnt; } }
+        public QnameType[] Types { get { return s_qnt; } }
     }
 }

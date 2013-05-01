@@ -121,7 +121,7 @@ namespace Kixeye.Jabber.Connection
         /// <param name="chain">The chain of CAs for the cert</param>
         /// <param name="sslPolicyErrors">A bitfield for the erorrs in the certificate.</param>
         /// <returns>True if the cert should be accepted anyway.</returns>
-        bool OnInvalidCertificate(BaseSocket sock,
+        bool InvalidCertificate(BaseSocket sock,
             System.Security.Cryptography.X509Certificates.X509Certificate certificate,
             System.Security.Cryptography.X509Certificates.X509Chain chain,
             System.Net.Security.SslPolicyErrors sslPolicyErrors);

@@ -214,7 +214,7 @@ namespace Kixeye.Jabber.Protocol.IQ
         public DateTime Birthday
         {
             get { return DateTime.Parse(GetElem("BDAY")); }
-            set { SetElem("BDAY", string.Format("yyyy-MM-dd", value)); }
+            set { SetElem("BDAY", value.ToString("yyyy-MM-dd")); }
         }
 
         /// <summary>

@@ -475,22 +475,22 @@ namespace Kixeye.Jabber.Net
 
         #region ISocketEventListener Members
 
-        void ISocketEventListener.OnInit(BaseSocket newSock)
+        public void OnInit(BaseSocket newSock)
         {
             m_listener.OnInit(newSock);
         }
 
-        ISocketEventListener ISocketEventListener.GetListener(BaseSocket newSock)
+        public ISocketEventListener GetListener(BaseSocket newSock)
         {
             throw new Exception("The method or operation is not implemented.");
         }
 
-        bool ISocketEventListener.OnAccept(BaseSocket newsocket)
+        public bool OnAccept(BaseSocket newsocket)
         {
             throw new Exception("The method or operation is not implemented.");
         }
 
-        void ISocketEventListener.OnConnect(BaseSocket sock)
+        public void OnConnect(BaseSocket sock)
         {
             lock (m_queue)
             {
@@ -511,12 +511,12 @@ namespace Kixeye.Jabber.Net
             }            
         }
 
-        void ISocketEventListener.OnClose(BaseSocket sock)
+        public void OnClose(BaseSocket sock)
         {
             throw new Exception("The method or operation is not implemented.");
         }
 
-        void ISocketEventListener.OnError(BaseSocket sock, Exception ex)
+        public void OnError(BaseSocket sock, Exception ex)
         {
             // shutdown race.
             if (!m_running)
@@ -541,7 +541,7 @@ namespace Kixeye.Jabber.Net
             return true;
         }
 
-        bool ISocketEventListener.OnRead(BaseSocket sock, byte[] buf, int offset, int length)
+        public bool OnRead(BaseSocket sock, byte[] buf, int offset, int length)
         {
             if (!m_running)
             {
@@ -643,12 +643,12 @@ namespace Kixeye.Jabber.Net
             return true;
         }
 
-        void ISocketEventListener.OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
+        public void OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
         {
             m_listener.OnWrite(this, buf, offset, length);
         }
 
-        bool ISocketEventListener.OnInvalidCertificate(BaseSocket sock, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        public bool OnInvalidCertificate(BaseSocket sock, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
             return m_listener.OnInvalidCertificate(this, certificate, chain, sslPolicyErrors);
         }

@@ -266,7 +266,7 @@ namespace Kixeye.Jabber.Client
         /// Iterate over all of the JIDs we have not-unavilable presence from.
         /// </summary>
         /// <returns></returns>
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             return new UserPresenceManagerEnumerator(m_items.Values);
         }

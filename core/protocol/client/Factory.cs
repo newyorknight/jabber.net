@@ -22,6 +22,6 @@ namespace Kixeye.Jabber.Protocol.Client
             new QnameType("iq",       URI.ACCEPT, typeof(Kixeye.Jabber.Protocol.Client.IQ)),
             new QnameType("error",    URI.ACCEPT, typeof(Kixeye.Jabber.Protocol.Client.Error))
         };
-        QnameType[] IPacketTypes.Types { get { return s_qnt; } }
+        public QnameType[] Types { get { return s_qnt; } }
     }
 }

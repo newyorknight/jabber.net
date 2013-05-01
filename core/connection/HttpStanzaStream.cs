@@ -205,16 +205,16 @@ namespace Kixeye.Jabber.Connection
 
         #region ISocketEventListener Members
 
-        void ISocketEventListener.OnInit(BaseSocket newSock)
+        public void OnInit(BaseSocket newSock)
         {
         }
 
-        ISocketEventListener ISocketEventListener.GetListener(BaseSocket newSock)
+        public ISocketEventListener GetListener(BaseSocket newSock)
         {
             return this;
         }
 
-        bool ISocketEventListener.OnAccept(BaseSocket newsocket)
+        public bool OnAccept(BaseSocket newsocket)
         {
             m_sock = newsocket;
             InitializeStream();
@@ -226,7 +226,7 @@ namespace Kixeye.Jabber.Connection
             return false;
         }
 
-        void ISocketEventListener.OnConnect(BaseSocket sock)
+        public void OnConnect(BaseSocket sock)
         {
 #if !NO_SSL
             if ((bool)m_listener[Options.SSL])
@@ -239,21 +239,21 @@ namespace Kixeye.Jabber.Connection
             m_listener.Connected();
         }
 
-        void ISocketEventListener.OnClose(BaseSocket sock)
+        public void OnClose(BaseSocket sock)
         {
             m_listener[Options.REMOTE_CERTIFICATE] = null;
             m_elements = null;
             m_listener.Closed();
         }
 
-        void ISocketEventListener.OnError(BaseSocket sock, Exception ex)
+        public void OnError(BaseSocket sock, Exception ex)
         {
             m_listener[Options.REMOTE_CERTIFICATE] = null;
             m_elements = null;
             m_listener.Errored(ex);
         }
 
-        bool ISocketEventListener.OnRead(BaseSocket sock, byte[] buf, int offset, int length)
+        public bool OnRead(BaseSocket sock, byte[] buf, int offset, int length)
         {
             Debug.Assert(m_listener != null);
             Debug.Assert(m_elements != null);
@@ -262,7 +262,7 @@ namespace Kixeye.Jabber.Connection
             return true;
         }
 
-        void ISocketEventListener.OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
+        public void OnWrite(BaseSocket sock, byte[] buf, int offset, int length)
         {
             m_listener.BytesWritten(buf, offset, length);
         }
@@ -275,12 +275,12 @@ namespace Kixeye.Jabber.Connection
         /// <param name="chain">The chain of CAs for the cert</param>
         /// <param name="sslPolicyErrors">A bitfield for the erorrs in the certificate.</param>
         /// <returns>True if the cert should be accepted anyway.</returns>
-        bool ISocketEventListener.OnInvalidCertificate(BaseSocket sock,
+        public bool OnInvalidCertificate(BaseSocket sock,
             System.Security.Cryptography.X509Certificates.X509Certificate certificate,
             System.Security.Cryptography.X509Certificates.X509Chain chain,
             System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
-            return m_listener.OnInvalidCertificate(sock, certificate, chain, sslPolicyErrors);
+            return m_listener.InvalidCertificate(sock, certificate, chain, sslPolicyErrors);
         }
         #endregion
     }

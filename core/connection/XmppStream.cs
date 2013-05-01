@@ -1364,7 +1364,7 @@ namespace Kixeye.Jabber.Connection
 
         #region IStanzaEventListener Members
 
-        void IStanzaEventListener.Connected()
+        public void Connected()
         {
             lock (m_stateLock)
             {
@@ -1381,7 +1381,7 @@ namespace Kixeye.Jabber.Connection
             SendNewStreamHeader();
         }
 
-        void IStanzaEventListener.Accepted()
+        public void Accepted()
         {
             lock (StateLock)
             {
@@ -1396,7 +1396,7 @@ namespace Kixeye.Jabber.Connection
             }
         }
 
-        void IStanzaEventListener.BytesRead(byte[] buf, int offset, int count)
+        public void BytesRead(byte[] buf, int offset, int count)
         {
             if (OnReadText != null)
             {
@@ -1404,7 +1404,7 @@ namespace Kixeye.Jabber.Connection
             }
         }
 
-        void IStanzaEventListener.BytesWritten(byte[] buf, int offset, int count)
+        public void BytesWritten(byte[] buf, int offset, int count)
         {
             if (OnWriteText != null)
             {
@@ -1412,7 +1412,7 @@ namespace Kixeye.Jabber.Connection
             }
         }
 
-        void IStanzaEventListener.StreamInit(ElementStream stream)
+        public void StreamInit(ElementStream stream)
         {
             if (OnStreamInit != null)
             {
@@ -1426,7 +1426,7 @@ namespace Kixeye.Jabber.Connection
             }
         }
 
-        void IStanzaEventListener.Errored(Exception ex)
+        public void Errored(Exception ex)
         {
             m_reconnect = false;
 
@@ -1447,7 +1447,7 @@ namespace Kixeye.Jabber.Connection
             //TryReconnect();
         }
 
-        void IStanzaEventListener.Closed()
+        public void Closed()
         {
             lock (StateLock)
             {
@@ -1466,14 +1466,14 @@ namespace Kixeye.Jabber.Connection
             TryReconnect();
         }
 
-        void IStanzaEventListener.DocumentStarted(XmlElement elem)
+        public void DocumentStarted(XmlElement elem)
         {
             // The OnDocumentStart logic stays outside the listener, so that it can be
             // more easily overriden by subclasses.
             OnDocumentStart(m_stanzas, elem);
         }
 
-        void IStanzaEventListener.DocumentEnded()
+        public void DocumentEnded()
         {
             lock (StateLock)
             {
@@ -1488,14 +1488,14 @@ namespace Kixeye.Jabber.Connection
             }
         }
 
-        void IStanzaEventListener.StanzaReceived(XmlElement elem)
+        public void StanzaReceived(XmlElement elem)
         {
             // The OnElement logic stays outside the listener, so that it can be
             // more easily overriden by subclasses.
             OnElement(m_stanzas, elem);
         }
 
-        bool IStanzaEventListener.OnInvalidCertificate(Kixeye.Jabber.Net.BaseSocket sock,
+        public bool InvalidCertificate(Kixeye.Jabber.Net.BaseSocket sock,
             System.Security.Cryptography.X509Certificates.X509Certificate certificate,
             System.Security.Cryptography.X509Certificates.X509Chain chain,
             System.Net.Security.SslPolicyErrors sslPolicyErrors)

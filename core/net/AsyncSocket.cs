@@ -892,7 +892,7 @@ namespace Kixeye.Jabber.Net
             {
                 Debug.WriteLine("Exception in RequestRead: " + e.ToString());
                 Close();
-                throw e;
+                throw;
             }
         }
 
@@ -1164,7 +1164,7 @@ namespace Kixeye.Jabber.Net
         }
 
         #region IComparable
-        int IComparable.CompareTo(object val)
+        public int CompareTo(object val)
         {
             if (val == null)
                 return 1;
