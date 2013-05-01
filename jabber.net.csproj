@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <PropertyGroup Condition="'$(BuildMono)'==''">
+  <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -28,11 +28,15 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <SignAssembly>true</SignAssembly>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' AND '$(BuildMono)'==''">
-    <OutputPath>bin5\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj5\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>obj5\Debug\</IntermediateOutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -55,9 +59,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' AND '$(BuildMono)'==''">
-    <OutputPath>bin5\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj5\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>obj5\Debug\</IntermediateOutputPath>
+    <OutputPath>bin\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -82,17 +86,28 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants Condition="'$(BuildMono)'==''">TRACE;DEBUG;NET20</DefineConstants>
     <DefineConstants Condition="'$(BuildMono)'=='true'">TRACE;DEBUG</DefineConstants>
+    <DocumentationFile />
+    <OutputPath>bin\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <OutputPath>bin\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>jabber.net</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>jabber</RootNamespace>
   </PropertyGroup>
   <ItemGroup Condition="'$(BuildMono)'==''">
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
@@ -142,9 +157,7 @@
     <Compile Include="bedrock\io\BufferAggregate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jabber\client\BookmarkManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="jabber\client\BookmarkManager.cs" />
     <Compile Include="jabber\connection\FileMap.cs" />
     <Compile Include="bedrock\io\ReadEventStream.cs">
       <SubType>Code</SubType>
@@ -188,43 +201,23 @@
     <Compile Include="bedrock\util\GetOptBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bedrock\util\IdleTime.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="bedrock\util\Version.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jabber\connection\BindingStanzaStream.cs" />
-    <Compile Include="jabber\connection\CapsManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\connection\CertificatePrompt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="jabber\connection\ConferenceManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\connection\DiscoManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\client\JabberClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\client\PresenceManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\client\RosterManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="jabber\connection\CapsManager.cs" />
+    <Compile Include="jabber\connection\ConferenceManager.cs" />
+    <Compile Include="jabber\connection\DiscoManager.cs" />
+    <Compile Include="jabber\client\JabberClient.cs" />
+    <Compile Include="jabber\client\PresenceManager.cs" />
+    <Compile Include="jabber\client\RosterManager.cs" />
     <Compile Include="jabber\connection\HttpStanzaStream.cs" />
     <Compile Include="jabber\connection\HttpUploader.cs" />
     <Compile Include="jabber\connection\IQTracker.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jabber\connection\PollingStanzaStream.cs" />
-    <Compile Include="jabber\connection\PubSubManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="jabber\connection\PubSubManager.cs" />
     <Compile Include="jabber\connection\sasl\ExternalProcessor.cs" />
     <Compile Include="jabber\connection\sasl\KerbProcessor.cs" />
     <Compile Include="jabber\connection\sasl\MD5Processor.cs">
@@ -236,12 +229,8 @@
     <Compile Include="jabber\connection\sasl\SASLProcessor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jabber\connection\StreamComponent.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="jabber\connection\XmppStream.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="jabber\connection\StreamComponent.cs" />
+    <Compile Include="jabber\connection\XmppStream.cs" />
     <Compile Include="jabber\connection\SocketStanzaStream.cs" />
     <Compile Include="jabber\connection\StanzaStream.cs" />
     <Compile Include="jabber\connection\States.cs">
@@ -394,9 +383,7 @@
     <Compile Include="jabber\protocol\x\Factory.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jabber\server\JabberService.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="jabber\server\JabberService.cs" />
     <Compile Include="jabber\server\XdbTracker.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -435,42 +422,9 @@
     <Compile Include="xpnet\UTF8Encoding.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="jabber\client\JabberClient.bmp" />
-    <EmbeddedResource Include="jabber\client\JabberClient.resx">
-      <DependentUpon>JabberClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jabber\client\PresenceManager.bmp" />
-    <EmbeddedResource Include="jabber\client\RosterManager.bmp" />
-    <EmbeddedResource Include="jabber\client\RosterManager.resx">
-      <DependentUpon>RosterManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jabber\connection\XmppStream.resx">
-      <DependentUpon>XmppStream.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jabber\server\JabberService.bmp" />
-    <EmbeddedResource Include="jabber\server\JabberService.resx">
-      <DependentUpon>JabberService.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="jabbernet.key" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="jabber\connection\DiscoManager.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="jabber\connection\CapsManager.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="jabber\connection\PubSubManager.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="jabber\connection\CertificatePrompt.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>CertificatePrompt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jabber\connection\ConferenceManager.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Condition="'$(BuildMono)'==''" Include="netlib.Dns\netlib.Dns.csproj">
@@ -480,6 +434,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Condition="'$(BuildMono)'==''" Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -487,8 +442,5 @@
     </PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
-    <SignAssembly>false</SignAssembly>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
 </Project>

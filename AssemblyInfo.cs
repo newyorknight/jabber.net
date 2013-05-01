@@ -13,13 +13,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Jabber-Net library")]
-[assembly: AssemblyDescription("Connect to Jabber (http://www.jabber.org/) from .Net")]
-[assembly: AssemblyCompany("Cursive Systems, Inc.")]
-[assembly: AssemblyProduct("jabber-net")]
-[assembly: AssemblyCopyright("Copyright (c) Cursive, Inc. 2000-2008")]
-[assembly: AssemblyVersion("2.0.0.613")]
+[assembly: AssemblyTitle("Jabber.Net Library")]
+[assembly: AssemblyDescription("Use .NET to connect to a Jabber chat service.")]
+[assembly: AssemblyCompany("Kixeye, Inc")]
+[assembly: AssemblyProduct("jabber.net")]
+[assembly: AssemblyCopyright("Copyright (c) Kixeye, Inc 2013")]
+[assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: CLSCompliant(true)]
-[assembly: AssemblyKeyFile("../../jabbernet.key")]
 
