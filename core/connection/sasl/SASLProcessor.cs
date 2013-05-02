@@ -116,16 +116,9 @@ namespace Kixeye.Jabber.Connection.SASL
             }
             if ((mt & MechanismType.GSSAPI) == MechanismType.GSSAPI)
             {
-                string RemotePrincipal = "";
-                foreach (Mechanism mechanism in mechs.GetMechanisms())
-                {
-                    if (mechanism.MechanismName == "GSSAPI")
-                    {
-                        RemotePrincipal = mechanism.GetAttribute("kerb:principal");
-                        break;
-                    }
-                }
-                return new KerbProcessor(RemotePrincipal);
+                // Disabled until we can get a KerbProcessor that doesn't use
+                // `extern` calls
+                return null;
             }
             if ((mt & MechanismType.DIGEST_MD5) == MechanismType.DIGEST_MD5)
             {

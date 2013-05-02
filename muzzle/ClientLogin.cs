@@ -100,7 +100,7 @@ namespace muzzle
             cbPlaintext.Tag = Options.PLAINTEXT;
             txtURL.Tag = Options.POLL_URL;
             cmbConnectionType.Tag = Options.CONNECTION_TYPE;
-            cbUseWinCreds.Tag = KerbProcessor.USE_WINDOWS_CREDS;
+            cbUseWinCreds.Tag = "USE_WINDOWS_CREDS";
         }
 
         /// <summary>

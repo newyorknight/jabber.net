@@ -772,10 +772,8 @@ namespace Kixeye.Jabber.Client
                     proc[SASLProcessor.USERNAME] = User;
                     proc[SASLProcessor.PASSWORD] = Password;
                     proc[MD5Processor.REALM] = this.Server;
-                    object creds = this[KerbProcessor.USE_WINDOWS_CREDS];
-                    if (creds == null)
-                        creds = false;
-                    proc[KerbProcessor.USE_WINDOWS_CREDS] = creds.ToString();
+                    // Always false until we get a new KerbProcessor back
+                    proc["USE_WINDOWS_CRED"] = false.ToString();
                 }
                 else
                 {
