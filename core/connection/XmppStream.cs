@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Security.Cryptography;
 using System.Xml;
+using Kixeye.Bedrock.Collections;
 using Kixeye.Bedrock.Util;
 
 using Kixeye.Jabber.Protocol;
@@ -203,27 +204,23 @@ namespace Kixeye.Jabber.Connection
     /// </summary>
     abstract public class XmppStream : IStanzaEventListener
     {
-        private static readonly object[][] DEFAULTS = new object[][] {
-            new object[] {Options.TO, "jabber.com"},
-            new object[] {Options.KEEP_ALIVE, 30000},
-            new object[] {Options.CURRENT_KEEP_ALIVE, -1},
-            new object[] {Options.PORT, 5222},
-            new object[] {Options.RECONNECT_TIMEOUT, 30000},
-            new object[] {Options.PROXY_PORT, 1080},
-            new object[] {Options.SSL, false},
-            new object[] {Options.SASL, true},
-            new object[] {Options.REQUIRE_SASL, false},
-            new object[] {Options.PLAINTEXT, false},
-            new object[] {Options.AUTO_TLS, true},
-            new object[] {Options.AUTO_COMPRESS, true},
-
-#if __MonoCS__
-            new object[] {Options.CERTIFICATE_GUI, false},
-#else
-            new object[] {Options.CERTIFICATE_GUI, true},
-#endif
-            new object[] {Options.PROXY_TYPE, ProxyType.None},
-            new object[] {Options.CONNECTION_TYPE, ConnectionType.Socket},
+        private static readonly OptionHash DEFAULTS = new OptionHash()
+        {
+            {Options.TO, "jabber.com"},
+            {Options.KEEP_ALIVE, 30000},
+            {Options.CURRENT_KEEP_ALIVE, -1},
+            {Options.PORT, 5222},
+            {Options.RECONNECT_TIMEOUT, 30000},
+            {Options.PROXY_PORT, 1080},
+            {Options.SSL, false},
+            {Options.SASL, true},
+            {Options.REQUIRE_SASL, false},
+            {Options.PLAINTEXT, false},
+            {Options.AUTO_TLS, true},
+            {Options.AUTO_COMPRESS, true},
+            {Options.CERTIFICATE_GUI, false},
+            {Options.PROXY_TYPE, ProxyType.None},
+            {Options.CONNECTION_TYPE, ConnectionType.Socket}
         };
 
         /// <summary>
@@ -237,7 +234,7 @@ namespace Kixeye.Jabber.Connection
 
         private XmlDocument m_doc        = new XmlDocument();
         private BaseState   m_state      = ClosedState.Instance;
-        private IDictionary m_properties = new Hashtable();
+        private OptionHash  m_properties = new OptionHash();
 
         private string m_streamID = null;
         private object m_stateLock = new object();
@@ -256,15 +253,32 @@ namespace Kixeye.Jabber.Connection
         private Features m_features = null; // the last features tag received.
 
         /// <summary>
-        /// Sets defaults in bulk.
+        /// Resets all options.
         /// </summary>
-        /// <param name="defaults">Array of objects to replace to defaults with.</param>
-        protected void SetDefaults(object[][] defaults)
+        protected void ResetOptions()
         {
-            foreach (object[] def in defaults)
-            {
-                this[(string)def[0]] = def[1];
-            }
+            m_properties.Clear();
+        }
+
+        /// <summary>
+        /// Resets existing options and then fills it up with the given ones.
+        /// </summary>
+        /// <param name="newOpts">New options to replace all existing ones.</param>
+        protected void ResetOptions(OptionHash newOpts)
+        {
+            m_properties.Clear();
+            m_properties.Merge(newOpts);
+        }
+
+        /// <summary>
+        /// Merges the given set of options into the current set. See
+        /// "ResetOptions" if you want to get rid of existing options before
+        /// setting new ones.
+        /// </summary>
+        /// <param name="opts">Options to merge with the current set.</param>
+        protected void SetOptions(OptionHash opts)
+        {
+            m_properties.Merge(opts);
         }
 
         /// <summary>
@@ -275,7 +289,7 @@ namespace Kixeye.Jabber.Connection
             m_ns = new XmlNamespaceManager(m_doc.NameTable);
             m_tracker = new IQTracker(this);
 
-            SetDefaults(DEFAULTS);
+            SetOptions(DEFAULTS);
         }
 
         /// <summary>
@@ -289,7 +303,7 @@ namespace Kixeye.Jabber.Connection
         {
             get
             {
-                if (!m_properties.Contains(prop))
+                if (!m_properties.ContainsKey(prop))
                     return null;
                 return m_properties[prop];
             }
@@ -298,37 +312,6 @@ namespace Kixeye.Jabber.Connection
                 m_properties[prop] = value;
             }
         }
-
-        /*
-        /// <summary>
-        /// Create a SocketElementStream out of an accepted socket.
-        /// </summary>
-        /// <param name="aso"></param>
-        public XmppStream(BaseSocket aso)
-        {
-            m_accept = m_sock = null;
-            if (aso is AsyncSocket)
-            {
-                m_watcher = ((AsyncSocket)aso).SocketWatcher;
-            }
-            m_ns = new XmlNamespaceManager(m_doc.NameTable);
-            m_timer = new Timer(new TimerCallback(DoKeepAlive), null, Timeout.Infinite, Timeout.Infinite);
-            InitializeStream();
-            m_state = jabber.connection.AcceptingState.Instance;
-        }
-
-        /// <summary>
-        /// Create a SocketElementStream with an existing SocketWatcher, so that you can do
-        /// lots of concurrent connections.
-        /// </summary>
-        /// <param name="watcher"></param>
-        public XmppStream(SocketWatcher watcher)
-        {
-            m_watcher = watcher;
-            m_ns = new XmlNamespaceManager(m_doc.NameTable);
-            m_timer = new Timer(new TimerCallback(DoKeepAlive), null, Timeout.Infinite, Timeout.Infinite);
-        }
-        */
 
         /// <summary>
         /// Informs the client when text has been written to the XMPP server.
@@ -1416,13 +1399,7 @@ namespace Kixeye.Jabber.Connection
         {
             if (OnStreamInit != null)
             {
-                // Race condition.  Make sure not to make GUI calls in OnStreamInit
-                /*
-                if (InvokeRequired)
-                    CheckedInvoke(OnStreamInit, new object[] { this, stream });
-                else
-              */
-                    OnStreamInit(this, stream);
+                OnStreamInit(this, stream);
             }
         }
 

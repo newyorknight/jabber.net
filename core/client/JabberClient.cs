@@ -4,6 +4,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Xml;
 
+using Kixeye.Bedrock.Collections;
 using Kixeye.Bedrock.Util;
 using Kixeye.Jabber.Net;
 
@@ -39,26 +40,16 @@ namespace Kixeye.Jabber.Client
     /// </summary>
     public class JabberClient : XmppStream
     {
-        private static readonly object[][] DEFAULTS = new object[][] {
-            new object[] {Options.RESOURCE, "Jabber.Net"},
-            new object[] {Options.PRIORITY, 0},
-            new object[] {Options.AUTO_LOGIN, true},
-            new object[] {Options.AUTO_ROSTER, true},
-            new object[] {Options.AUTO_IQ_ERRORS, true},
-            new object[] {Options.AUTO_PRESENCE, true},
-            new object[] {Options.PROXY_PORT, 1080},
-            new object[] {Options.SRV_PREFIX, "_xmpp-client._tcp."},
+        private static readonly OptionHash DEFAULTS = new OptionHash {
+            {Options.RESOURCE, "Jabber.Net"},
+            {Options.PRIORITY, 0},
+            {Options.AUTO_LOGIN, true},
+            {Options.AUTO_ROSTER, true},
+            {Options.AUTO_IQ_ERRORS, true},
+            {Options.AUTO_PRESENCE, true},
+            {Options.PROXY_PORT, 1080},
+            {Options.SRV_PREFIX, "_xmpp-client._tcp."}
         };
-
-        private void init()
-        {
-            SetDefaults(DEFAULTS);
-
-            this.OnSASLStart += new Kixeye.Jabber.Connection.SASL.SASLProcessorHandler(JabberClient_OnSASLStart);
-            this.OnSASLEnd += new Kixeye.Jabber.Protocol.Stream.FeaturesHandler(JabberClient_OnSASLEnd);
-            this.OnSASLError += new ProtocolHandler(JabberClient_OnSASLError);
-            this.OnStreamInit += new StreamHandler(JabberClient_OnStreamInit);
-        }
 
         /// <summary>
         /// Creates a new JabberClient.
@@ -66,19 +57,13 @@ namespace Kixeye.Jabber.Client
         /// </summary>
         public JabberClient() : base()
         {
-            init();
-        }
+            SetOptions(DEFAULTS);
 
-        /*
-        /// <summary>
-        /// Create a new JabberClient, reusing an existing SocketWatcher.
-        /// </summary>
-        /// <param name="watcher">SocketWatcher to use.</param>
-        public JabberClient(SocketWatcher watcher) : base(watcher)
-        {
-            init();
+            this.OnSASLStart += new Kixeye.Jabber.Connection.SASL.SASLProcessorHandler(JabberClient_OnSASLStart);
+            this.OnSASLEnd += new Kixeye.Jabber.Protocol.Stream.FeaturesHandler(JabberClient_OnSASLEnd);
+            this.OnSASLError += new ProtocolHandler(JabberClient_OnSASLError);
+            this.OnStreamInit += new StreamHandler(JabberClient_OnStreamInit);
         }
-        */
 
         /// <summary>
         /// Triggers when the client receives a presence packet.

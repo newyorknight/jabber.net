@@ -5,6 +5,7 @@ using System.Threading;
 using System.Xml;
 
 using Kixeye.Jabber.Net;
+using Kixeye.Bedrock.Collections;
 using Kixeye.Bedrock.Util;
 
 using Kixeye.Jabber.Connection;
@@ -51,25 +52,22 @@ namespace Kixeye.Jabber.Server
     /// </summary>
     public class JabberService : Kixeye.Jabber.Connection.XmppStream
     {
-        private static readonly object[][] DEFAULTS = new object[][] {
-            new object[] {Options.COMPONENT_DIRECTION, ComponentType.Accept},
-            new object[] {Options.PORT, 7400},
-            new object[] {Options.OVERRIDE_FROM, null},
-        };
-
-        private void init()
+        private static readonly OptionHash DEFAULTS = new OptionHash()
         {
-            SetDefaults(DEFAULTS);
-            this.OnStreamInit += new Kixeye.Jabber.Connection.StreamHandler(JabberService_OnStreamInit);
-            this.OnSASLStart += new Kixeye.Jabber.Connection.SASL.SASLProcessorHandler(JabberService_OnSASLStart);
-        }
+            {Options.COMPONENT_DIRECTION, ComponentType.Accept},
+            {Options.PORT, 7400},
+            {Options.OVERRIDE_FROM, null}
+        };
 
         /// <summary>
         /// Create a a connect component.
         /// </summary>
         public JabberService() : base()
         {
-            init();
+            SetOptions(DEFAULTS);
+
+            this.OnStreamInit += new Kixeye.Jabber.Connection.StreamHandler(JabberService_OnStreamInit);
+            this.OnSASLStart += new Kixeye.Jabber.Connection.SASL.SASLProcessorHandler(JabberService_OnSASLStart);
         }
 
         /// <summary>
@@ -82,9 +80,8 @@ namespace Kixeye.Jabber.Server
         public JabberService(string host,
             int port,
             string name,
-            string secret) : base()
+            string secret) : this()
         {
-            init();
             this.ComponentID = name;
             this.NetworkHost = host;
             this.Port = port;
@@ -99,9 +96,8 @@ namespace Kixeye.Jabber.Server
         /// <param name="port">Port jabberd will connect to</param>
         /// <param name="name">Component name</param>
         /// <param name="secret">Component secret</param>
-        public JabberService(int port, string name, string secret) : base()
+        public JabberService(int port, string name, string secret) : this()
         {
-            init();
             this.ComponentID = name;
             this.Port = port;
 
