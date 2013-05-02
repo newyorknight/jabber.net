@@ -48,9 +48,11 @@
   <ItemGroup>
     <Compile Include="Collections\ByteStack.cs" />
     <Compile Include="Collections\GraphNode.cs" />
+    <Compile Include="Collections\IDefault.cs" />
     <Compile Include="Collections\IndexedTrie.cs" />
     <Compile Include="Collections\ISet.cs" />
     <Compile Include="Collections\LinkedList.cs" />
+    <Compile Include="Collections\OptionHash.cs" />
     <Compile Include="Collections\Set.cs" />
     <Compile Include="Collections\SkipList.cs" />
     <Compile Include="Collections\StringSet.cs" />
