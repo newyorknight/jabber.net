@@ -753,6 +753,12 @@ namespace Kixeye.Jabber.Connection
         /// </summary>
         public virtual void Connect()
         {
+            // Cannot connect when we have an open
+            if (m_stanzas != null && m_stanzas.Connected)
+            {
+                throw new Exception("Cannot connect - stream is already connected!");
+            }
+
             this[Options.CURRENT_KEEP_ALIVE] = -1;
             m_stanzas = StanzaStream.Create(this.ConnectionType, this);
             lock (StateLock)
