@@ -241,6 +241,21 @@ namespace Kixeye.Jabber.Client
         }
 
         /// <summary>
+        /// Connects to the XMPP server. Sets the necessary connection
+        /// parameters before calling Connect().
+        /// </summary>
+        /// <param name="username">Name of the user to authenticate as.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        /// <param name="resource">The resource name to create a session for.</param>
+        public void Connect(string username, string password, string resource)
+        {
+            User = username;
+            Password = password;
+            Resource = resource;
+            Connect();
+        }
+
+        /// <summary>
         /// Closes down the connection.
         /// </summary>
         public override void Close()
