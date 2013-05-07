@@ -157,7 +157,7 @@ namespace Kixeye.Jabber.Connection
         /// </summary>
         public const string RECONNECT_TIMEOUT   = "reconnect_timeout";
         /// <summary>
-        /// Determines the connection type (sockets, HTTP polling, or HTTP binding).
+        /// Determines the connection type.
         /// </summary>
         public const string CONNECTION_TYPE     = "connection";
         /// <summary>
@@ -579,9 +579,9 @@ namespace Kixeye.Jabber.Connection
         }
 
         /// <summary>
-        /// Gets or sets the connection type, such as Socket, HTTP polling and so on.
+        /// Gets or sets the XMPP connection type.
         /// </summary>
-        public ConnectionType Connection
+        public ConnectionType ConnectionType
         {
             get { return (ConnectionType)this[Options.CONNECTION_TYPE]; }
             set { this[Options.CONNECTION_TYPE] = value; }
@@ -754,7 +754,7 @@ namespace Kixeye.Jabber.Connection
         public virtual void Connect()
         {
             this[Options.CURRENT_KEEP_ALIVE] = -1;
-            m_stanzas = StanzaStream.Create(this.Connection, this);
+            m_stanzas = StanzaStream.Create(this.ConnectionType, this);
             lock (StateLock)
             {
                 State = ConnectingState.Instance;
@@ -769,7 +769,7 @@ namespace Kixeye.Jabber.Connection
         protected virtual void Accept()
         {
             if ((m_stanzas == null) || (!m_stanzas.Acceptable))
-                m_stanzas = StanzaStream.Create(this.Connection, this);
+                m_stanzas = StanzaStream.Create(this.ConnectionType, this);
             lock (StateLock)
             {
                 this.State = AcceptingState.Instance;

@@ -231,7 +231,7 @@ namespace Kixeye.Jabber.Connection
 #if !NO_SSL
             if ((bool)m_listener[Options.SSL])
             {
-                XEP25Socket s = sock as XEP25Socket;
+                XEP124Socket s = sock as XEP124Socket;
 
                 m_listener[Options.REMOTE_CERTIFICATE] = s.RemoteCertificate;
             }

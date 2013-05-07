@@ -151,23 +151,6 @@ namespace Kixeye.Jabber.Connection
                 proxy = new ShttpProxy(this);
                 break;
 
-                /*
-            case ProxyType.HTTP_Polling:
-                XEP25Socket j25s = new XEP25Socket(this);
-                if (m_ProxyHost != null)
-                {
-                    System.Net.WebProxy wp = new System.Net.WebProxy();
-                    wp.Address = new Uri("http://" + m_ProxyHost + ":" + m_ProxyPort);
-                    if (m_ProxyUsername != null)
-                    {
-                        wp.Credentials = new System.Net.NetworkCredential(m_ProxyUsername, m_ProxyPassword);
-                    }
-                    j25s.Proxy = wp;
-                }
-                j25s.URL = m_server;
-                m_sock = j25s;
-                break;
-                */
             case ProxyType.None:
                 m_sock = new AsyncSocket(null, this, (bool)m_listener[Options.SSL], false);
 

@@ -10,7 +10,7 @@ using Kixeye.Jabber.Protocol;
 namespace Kixeye.Jabber.Connection
 {
     /// <summary>
-    /// Specifies the connection type, such as socket, polling, and so on.
+    /// Specifies the XMPP connection type.
     /// </summary>
     public enum ConnectionType
     {
@@ -18,10 +18,6 @@ namespace Kixeye.Jabber.Connection
         /// Uses "Normal" XMPP socket
         /// </summary>
         Socket,
-        /// <summary>
-        /// Uses HTTP Polling, as in http://www.xmpp.org/extensions/xep-0025.html
-        /// </summary>
-        HTTP_Polling,
         /// <summary>
         /// Uses HTTP Binding, as in http://www.xmpp.org/extensions/xep-0124.html
         /// </summary>
@@ -145,7 +141,7 @@ namespace Kixeye.Jabber.Connection
         /// <summary>
         /// Creates a StanzaStream.
         /// </summary>
-        /// <param name="kind">Connection type, such as socket, polling, and so on.</param>
+        /// <param name="kind">Connection type.</param>
         /// <param name="listener">Connection event listeners.</param>
         /// <returns>StanzaStream used to connect to an XMPP server and send stanzas.</returns>
         public static StanzaStream Create(ConnectionType kind, IStanzaEventListener listener)
@@ -154,8 +150,6 @@ namespace Kixeye.Jabber.Connection
             {
             case ConnectionType.Socket:
                 return new SocketStanzaStream(listener);
-            case ConnectionType.HTTP_Polling:
-                return new PollingStanzaStream(listener);
             case ConnectionType.HTTP_Binding:
                 return new BindingStanzaStream(listener);
             default:

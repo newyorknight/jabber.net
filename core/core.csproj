@@ -63,7 +63,6 @@
     <Compile Include="Connection\HttpStanzaStream.cs" />
     <Compile Include="Connection\HttpUploader.cs" />
     <Compile Include="Connection\IQTracker.cs" />
-    <Compile Include="Connection\PollingStanzaStream.cs" />
     <Compile Include="Connection\PubSubManager.cs" />
     <Compile Include="Connection\SASL\ExternalProcessor.cs" />
     <Compile Include="Connection\SASL\MD5Processor.cs" />
@@ -89,7 +88,6 @@
     <Compile Include="Net\Socks4Proxy.cs" />
     <Compile Include="Net\Socks5Proxy.cs" />
     <Compile Include="Net\XEP124Socket.cs" />
-    <Compile Include="Net\XEP25Socket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protocol\Accept\Factory.cs" />
     <Compile Include="Protocol\Accept\Handshake.cs" />
