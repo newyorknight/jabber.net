@@ -133,15 +133,15 @@ namespace Kixeye.Jabber.Net
             // we'll end up in OnConnected below.
         }
 
-#if !NO_SSL
         /// <summary>
         /// Start TLS processing on an open socket.
         /// </summary>
         public override void StartTLS()
         {
+#if !NO_SSL
             m_sock.StartTLS();
-        }
 #endif
+        }
 
         /// <summary>
         /// Start compression processing on an open socket.

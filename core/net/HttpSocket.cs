@@ -593,7 +593,6 @@ namespace Kixeye.Jabber.Net
             get { return (m_sock != null) && (m_sock.Connected); }
         }
 
-#if !NO_SSL
         /// <summary>
         /// Not implemented.
         /// </summary>
@@ -601,7 +600,6 @@ namespace Kixeye.Jabber.Net
         {
             throw new Exception("The method or operation is not implemented.");
         }
-#endif
 
         /// <summary>
         /// Not implemented.

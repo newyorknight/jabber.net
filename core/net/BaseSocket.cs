@@ -118,12 +118,10 @@ namespace Kixeye.Jabber.Net
             get;
         }
 
-#if !NO_SSL
         /// <summary>
         /// Start TLS processing on an open socket.
         /// </summary>
         public abstract void StartTLS();
-#endif
 
         /// <summary>
         /// Start XEP-138 compression on this socket.
