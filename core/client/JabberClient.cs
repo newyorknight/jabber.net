@@ -245,11 +245,25 @@ namespace Kixeye.Jabber.Client
         /// parameters before calling Connect().
         /// </summary>
         /// <param name="username">Name of the user to authenticate as.</param>
+        /// <param name="server">Server domain used to create a bare JID.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        public void Connect(string username, string server, string password)
+        {
+            Connect(username, server, password, Guid.NewGuid().ToString());
+        }
+
+        /// <summary>
+        /// Connects to the XMPP server. Sets the necessary connection
+        /// parameters before calling Connect().
+        /// </summary>
+        /// <param name="username">Name of the user to authenticate as.</param>
+        /// <param name="server">Server domain used to create a bare JID.</param>
         /// <param name="password">Password to use for authentication.</param>
         /// <param name="resource">The resource name to create a session for.</param>
-        public void Connect(string username, string password, string resource)
+        public void Connect(string username, string server, string password, string resource)
         {
             User = username;
+            Server = server;
             Password = password;
             Resource = resource;
             Connect();
