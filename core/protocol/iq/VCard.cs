@@ -867,11 +867,11 @@ namespace Kixeye.Jabber.Protocol.IQ
             /// The MIME type of the image.  Must be set before
             /// calling Image.set.
             /// </summary>
-            public System.Drawing.Imaging.ImageFormat ImageType
+            public string ImageType
             {
                 get 
                 {
-                    System.Drawing.Imaging.ImageFormat def = System.Drawing.Imaging.ImageFormat.Png;
+                    string def = "png";
 
                     // Strip off all but everything after the last slash,
                     // if any.
@@ -881,25 +881,9 @@ namespace Kixeye.Jabber.Protocol.IQ
                     string[] parts = t.Split("/".ToCharArray());
                     if (parts.Length == 0)
                         return def;
-                    t = parts[parts.Length - 1].ToLower();
-                    switch (t)
-                    {
-                        case "jpeg":
-                        case "jpg":
-                            return System.Drawing.Imaging.ImageFormat.Jpeg;
-                        case "png":
-                            return System.Drawing.Imaging.ImageFormat.Png;
-                        case "bmp":
-                            return System.Drawing.Imaging.ImageFormat.Bmp;
-                        case "gif":
-                            return System.Drawing.Imaging.ImageFormat.Gif;
-                        case "tif":
-                        case "tiff":
-                            return System.Drawing.Imaging.ImageFormat.Tiff;
-                    }
-                    return def;
+                    return parts[parts.Length - 1].ToLower();
                 }
-                set { SetElem("TYPE", value.ToString().ToLower()); }
+                set { SetElem("TYPE", value.ToLower()); }
             }
 
             /// <summary>
@@ -915,28 +899,6 @@ namespace Kixeye.Jabber.Protocol.IQ
                     return Convert.FromBase64String(b64);
                 }
                 set { SetElem("BINVAL", Convert.ToBase64String(value)); }
-            }
-
-            /// <summary>
-            /// An Image representation of the bytes in the picture.
-            /// The MimeType MUST be set before calling set.
-            /// </summary>
-            public System.Drawing.Image Image
-            {
-                get
-                {
-                    byte[] bin = this.BinVal;
-                    if (bin == null)
-                        return null;
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream(bin);
-                    return System.Drawing.Image.FromStream(ms);
-                }
-                set
-                {
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                    Image.Save(ms, this.ImageType);
-                    this.BinVal = ms.GetBuffer();
-                }
             }
         }
     }
